@@ -1,0 +1,25 @@
+{
+  "name": "@smartface/security",
+  "version": "1.0.0",
+  "description": "",
+  "main": "lib/index",
+  "author": {
+    "name": "Smartface",
+    "email": "info@smartface.io",
+    "url": "http://smartface.io"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "tsc -w",
+    "build": "tsc"
+  },
+  "keywords": [],
+  "publishConfig": {
+    "access": "public"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "prettier": "^1.19.1",
+    "typescript": "^4.3.5"
+  }
+}
