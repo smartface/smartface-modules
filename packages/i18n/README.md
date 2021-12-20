@@ -50,4 +50,12 @@ i18n.instance.language.formatMessage({ id: 'hello' }, { name: 'Smartface' });
 
 //Change the language without app reload, it updates the instance
 i18n.instance.locale = 'tr';
+
+//subscribe to locale changes
+const unsubscribe = i18n.instance.onChange(() => {
+	console.log('subscribe trigger');
+});
+
+//this will unsubscribe
+unsubscribe();
 ```
