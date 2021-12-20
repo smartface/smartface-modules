@@ -2,7 +2,7 @@
 	"name": "@smartface/i18n",
 	"version": "1.0.0",
 	"description": "Powerful internationalization module for Smartface based on formatjs",
-	"main": "index.js",
+	"main": "lib/index.js",
 	"author": "Alim Öncül",
 	"license": "MIT",
 	"scripts": {
