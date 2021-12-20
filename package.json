@@ -1,0 +1,15 @@
+{
+  "name": "smartface-modules",
+  "version": "0.0.0",
+  "description": "Smartface modules for application development",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {},
+  "author": "Cenk Cetinkaya <mail@cenkcetinkaya.com>",
+  "license": "MIT",
+  "dependencies": {
+    "lerna": "^4.0.0"
+  }
+}
