@@ -1,4 +1,2 @@
-import GooglePlayServices from "./googleplayservices";
-import GoogleSafetyNet from "./googlesafetynet";
-
-export { GooglePlayServices, GoogleSafetyNet };
+export * as GooglePlayServices from "./googleplayservices";
+export * as GoogleSafetyNet from "./googlesafetynet";
