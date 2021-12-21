@@ -46,7 +46,6 @@ export function styleablePageMixin<
         this.dispatch?.(
           addContextChild(name, child, classNames, userProps, defaultClassNames)
         );
-      this.layout.addChild(child);
     }
 
     updateHeaderBar() {
