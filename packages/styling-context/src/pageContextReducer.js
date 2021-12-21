@@ -1,5 +1,4 @@
-import { createActorTreeFromSFComponent } from "./fromSFComponent";
-import { orientationState } from "./pageContext";
+import { createActorTreeFromSFComponent } from "./createActorTreeFromSFComponent";
 
 export function pageContextReducer(context, action, target, state) {
 	const newState = Object.assign({}, state);

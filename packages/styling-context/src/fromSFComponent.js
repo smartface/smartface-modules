@@ -1,7 +1,7 @@
-import hooks from '../core/hooks';
-import * as StyleContext from '../styling/StyleContext';
-import makeStylable from '../styling/Stylable';
-import raiseErrorMaybe from '../core/util/raiseErrorMaybe';
+import hooks from '@smartface/contx/lib/core/hooks';
+import * as StyleContext from '@smartface/contx/lib/styling/StyleContext';
+import makeStylable from '@smartface/contx/lib/styling/Stylable';
+import raiseErrorMaybe from '@smartface/contx/lib/core/util/raiseErrorMaybe';
 import { createTreeItem } from './createTreeItem';
 import { createActorName } from './createActorName';
 

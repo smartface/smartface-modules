@@ -13,7 +13,8 @@
         "docs": "jsdoc2md -c .jsdoc.json --no-cache --files src/core/Actor.js --namepaths",
         "docs:clean": "rimraf _book",
         "watch": "tsc -w",
-        "docs:publish": "gh-pages --dist _book"
+        "docs:publish": "gh-pages --dist _book",
+        "prepublish": "npm run build"
     },
     "repository": {
         "type": "git",

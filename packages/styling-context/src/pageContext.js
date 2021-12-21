@@ -2,7 +2,7 @@ import commands from "@smartface/styler/lib/commandsManager";
 import merge from "@smartface/styler/lib/utils/merge";
 import Screen from '@smartface/native/device/screen';
 import System from '@smartface/native/device/system';
-import isTablet from '../core/isTablet';
+import isTablet from '@smartface/contx/lib/core/isTablet';
 import fromSFComponent from "./fromSFComponent";
 import { pageContextHooks } from "./pageContextHooks";
 import { pageContextReducer } from "./pageContextReducer";

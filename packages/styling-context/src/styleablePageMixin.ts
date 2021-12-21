@@ -1,45 +1,43 @@
 import View = require("@smartface/native/ui/view");
-import createPageContext from "pageContext";
+import createPageContext from "./pageContext";
 import { ThemeService } from "./ThemeService";
 import { StyleContextComponentType, StyleContextComponent } from ".";
 import { StyleablePage } from "./StyleablePage";
 import addContextChild from "./action/addChild";
 import removeContextChild from "./action/removeChild";
 import removeContextChildren from "./action/removeChildren";
-import { ContextPage } from "./PageClass";
-import { ConstructorOf } from "ConstructorOf";
+import Page = require("@smartface/native/ui/page");
+import { MergeCtor } from "./mixin";
 
 export function styleablePageMixin<
-  T extends new(...args: any[])=>any = new(...args: any[])=>any
+  T extends Page.Page
 >(Pg: T) {
-  
-  const StyleablePageClass = class extends (Pg as unknown as T) implements StyleablePage {
+  const StyleablePageClass = class extends (Pg as any) implements StyleablePage {
     dispatch?: StyleContextComponent["dispatch"];
     themeContext?: (action?: any) => void;
     headerBarUpdated: boolean = false;
-    name: string;
 
-    constructor(...args: any[]) {
-      super(args[1]);
-      this.name = args[0];
+    constructor(args: any) {
+      super(args);
+      if (this.ios) {
+        this.ios.onSafeAreaPaddingChange = this.onSafeAreaPaddingChange;
+      }
+    }
+
+    getName(): string {
+      throw new Error("Get Name is not implemented");
     }
 
     addChild(
-      child: View,
-      name?: string,
-      classNames?: string,
-      userProps?: { [key: string]: any },
-      defaultClassNames?: string
+      child: View<any>
     ): void {
-      if(name)
-        this.addStyleableChild(child, name, classNames, userProps, defaultClassNames);
-      else if(this.layout)
+      if(this.layout)
         this.layout.addChild(child);
     }
 
     addStyleableChild(
       child: View<any>,
-      name?: string,
+      name: string,
       classNames?: string,
       userProps?: { [key: string]: any },
       defaultClassNames?: string
@@ -52,15 +50,14 @@ export function styleablePageMixin<
     }
 
     updateHeaderBar() {
-      if (
-        this.parentController &&
+      if (this.parentController &&
         this.parentController.headerBar &&
-        !this.headerBarUpdated
-      ) {
-        this.headerBarUpdated = true;
-        this.dispatch?.({
-          type: "updateComponent",
-          component: this.parentController.headerBar,
+        this.headerBar.dispatch &&
+        !this.headerBar.__isUpdated) {
+        this.headerBar.__isUpdated = true;
+        this.headerBar.dispatch({
+            type: "updateComponent",
+            component: this.parentController.headerBar
         });
       }
     }
@@ -69,7 +66,7 @@ export function styleablePageMixin<
       this.dispatch = dispatcher;
     }
 
-    onShow = () => {
+    onShow() {
       this.updateHeaderBar();
       this.dispatch?.({
         type: "invalidate",
@@ -82,12 +79,13 @@ export function styleablePageMixin<
       this.layout.applyLayout();
     };
 
-    onOrientationChange = ({orientation}:{orientation: any}) => {
+    onOrientationChange({orientation}:{orientation: any}) {
       this.dispatch &&
         this.dispatch({
           type: "orientationStarted",
         });
       this.layout.applyLayout();
+      // @ts-ignore
       setTimeout(() => {
         this.dispatch &&
           this.dispatch({
@@ -109,10 +107,9 @@ export function styleablePageMixin<
     onLoad() {
       // this.themeContext = Application.theme(createPageContext(this, name, null, null), name);
       this.themeContext = ThemeService.instance?.addPage(
-        createPageContext(this, this.name),
-        this.name
+        createPageContext(this, this.getName()),
+        this.getName()
       );
-      this.updateHeaderBar();
     }
 
     dispose() {
@@ -120,12 +117,12 @@ export function styleablePageMixin<
       this.themeContext?.(null);
     }
 
-    onSafeAreaPaddingChange(paddings: {
+    onSafeAreaPaddingChange = (paddings: {
       left?: number;
       right?: number;
       top?: number;
       bottom?: number;
-    }) {
+    }) => {
       const style: {
         paddingLeft?: number;
         paddingRight?: number;
@@ -148,5 +145,5 @@ export function styleablePageMixin<
     }
   }
 
-  return StyleablePageClass;
+  return StyleablePageClass as MergeCtor<typeof StyleablePageClass, T>;
 }

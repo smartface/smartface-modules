@@ -1,4 +1,4 @@
-import raiseErrorMaybe from '../core/util/raiseErrorMaybe';
+import raiseErrorMaybe from '@smartface/contx/lib/core/util/raiseErrorMaybe';
 
 // function createOriginals(component) {
 //   !component.__original_addChild && (component.__original_addChild = component.addChild);

@@ -1,49 +1,46 @@
-import type View = require("@smartface/native/ui/view");
-import type ViewGroup = require("@smartface/native/ui/viewgroup");
+import View = require("@smartface/native/ui/view");
+import ViewGroup = require("@smartface/native/ui/viewgroup");
 import { Styleable } from "./Styleable";
 import addContextChild from "./action/addChild";
 import removeContextChild from "./action/removeChild";
 import { ConstructorOf } from "./ConstructorOf";
 
-type IContainer<T> = ConstructorOf<ViewGroup>;
 export function styleableContainerComponentMixin<
-  T extends ConstructorOf<any> = ConstructorOf<any>
+  T extends typeof ViewGroup
 >(ViewClass: T) {
-  return class extends ViewClass implements Styleable {
+  const Component =  class extends (ViewClass  as any) implements Styleable {
+    layout?: ViewGroup;
+
     addChild(
-      child: View,
-      name?: string,
-      classNames?: string,
-      userProps?: { [key: string]: any },
-      defaultClassNames?: string
+      child: View<any>
     ): void {
-      if(name)
-        this.addStyleableChild(child, name, classNames, userProps, defaultClassNames);
-      else if(this.layout)
-        this.layout.addChild(child);
+        
+      if(this.layout)
+        this.layout?.addChild(child);
       else
         super.addChild(child);
     }
-    
+
     addStyleableChild(
-      child: View,
+      child: View<any>,
       name: string,
       classNames?: string,
       userProps?: { [key: string]: any },
       defaultClassNames?: string
     ): void {
-      super.addChild?.(child);
       this.dispatch?.(
         addContextChild(name, child, classNames, userProps, defaultClassNames)
       );
     }
 
-    removeChild(view: View) {
+    removeChild(view: View<any>) {
       this.dispatch?.(removeContextChild());
       super.removeChild?.(view);
     }
     dispatch?: (action: { [key: string]: any }) => void;
   };
+
+  return Component as unknown as T;
 }
 
 export function styleableComponentMixin<

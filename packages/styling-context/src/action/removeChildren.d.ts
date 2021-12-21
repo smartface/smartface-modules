@@ -7,5 +7,5 @@
  * @returns {Object}
  */
 export default function removeChildren(): {
-    type: string;
+    type: removeChildren;
 }

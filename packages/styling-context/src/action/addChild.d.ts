@@ -10,10 +10,10 @@ import View = require("@smartface/native/ui/view");
  * @returns {Object}
  */
 export default function addChild(name: string, component: View, classNames?: string, userStyle?: { [key: string]: any }, defaultClassNames?: string[] | string): {
-    type: string,
+    type: "addChild",
     name: string,
-    component: string,
-    classNames: string[] | string,
-    defaultClassNames: string[] | string,
-    userStyle: { [key: string]: any }
+    component: any,
+    classNames?: string[] | string,
+    defaultClassNames?: string[] | string,
+    userStyle?: { [key: string]: any }
 };

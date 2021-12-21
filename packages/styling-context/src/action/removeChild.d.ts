@@ -4,5 +4,5 @@
  * @returns {Object}
  */
 export default function removeChild(): {
-    type: string;
+    type: removeChild;
 }
