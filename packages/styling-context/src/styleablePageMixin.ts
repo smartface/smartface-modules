@@ -10,7 +10,7 @@ import Page = require("@smartface/native/ui/page");
 import { MergeCtor } from "./mixin";
 
 export function styleablePageMixin<
-  T extends Page.Page
+  T extends Page
 >(Pg: T) {
   const StyleablePageClass = class extends (Pg as any) implements StyleablePage {
     dispatch?: StyleContextComponent["dispatch"];

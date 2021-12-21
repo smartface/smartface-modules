@@ -20,6 +20,7 @@
         "type": "git",
         "url": "git+https://github.com/smartface/styling-context.git"
     },
+    "publishConfig": {"access": "public"},
     "keywords": [
         "javascript",
         "context management"
