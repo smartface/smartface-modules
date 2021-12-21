@@ -1,16 +1,12 @@
 import View = require("@smartface/native/ui/view");
-import ViewGroup = require("@smartface/native/ui/viewgroup");
 import { Styleable } from "./Styleable";
 import addContextChild from "./action/addChild";
 import removeContextChild from "./action/removeChild";
 import { ConstructorOf } from "./ConstructorOf";
+import { MergeCtor } from "./mixin";
 
-export function styleableContainerComponentMixin<
-  T extends typeof ViewGroup
->(ViewClass: T) {
-  const Component =  class extends (ViewClass  as any) implements Styleable {
-    layout?: ViewGroup;
-
+export function styleableContainerComponentMixin<T extends any>(ViewClass: T) {
+  const Component =  class extends (ViewClass as any) implements Styleable {
     addChild(
       child: View<any>
     ): void {
@@ -40,7 +36,7 @@ export function styleableContainerComponentMixin<
     dispatch?: (action: { [key: string]: any }) => void;
   };
 
-  return Component as unknown as T;
+  return Component as unknown as MergeCtor<typeof Component, typeof ViewClass>;
 }
 
 export function styleableComponentMixin<
