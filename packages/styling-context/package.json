@@ -1,6 +1,6 @@
 {
     "name": "@smartface/styling-context",
-    "version": "1.0.0-rc.3",
+    "version": "1.0.0",
     "description": "Smartface Styling Context",
     "scripts": {
         "test": "mocha --compilers js:babel-core/register --debug ./test/**/*.test.js",
@@ -20,7 +20,9 @@
         "type": "git",
         "url": "git+https://github.com/smartface/styling-context.git"
     },
-    "publishConfig": {"access": "public"},
+    "publishConfig": {
+        "access": "public"
+    },
     "keywords": [
         "javascript",
         "context management"
@@ -48,9 +50,9 @@
         "typescript": "4.5.4"
     },
     "dependencies": {
-        "@smartface/styler": "^2.0.0",
         "@smartface/contx": "^4.1.1",
-        "@smartface/native": "^4.3.6-beta.6"
+        "@smartface/native": "^4.3.6-beta.6",
+        "@smartface/styler": "^2.0.0"
     },
     "config": {
         "commitizen": {
