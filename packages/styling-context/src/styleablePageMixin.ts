@@ -1,13 +1,14 @@
 import View = require("@smartface/native/ui/view");
 import createPageContext from "./pageContext";
 import { ThemeService } from "./ThemeService";
-import { StyleContextComponentType, StyleContextComponent } from ".";
+import { StyleContextComponent } from ".";
 import { StyleablePage } from "./StyleablePage";
 import addContextChild from "./action/addChild";
 import removeContextChild from "./action/removeChild";
 import removeContextChildren from "./action/removeChildren";
 import Page = require("@smartface/native/ui/page");
 import { MergeCtor } from "./mixin";
+import { instanceOfStyleContextComponentType } from "./instanceOfStyleContextComponentType";
 
 export function styleablePageMixin<
   T extends typeof Page
@@ -94,9 +95,10 @@ export function styleablePageMixin<
       }, 1);
     };
 
-    removeChild(child: StyleContextComponentType<View>) {
+    removeChild(child: View<any>) {
       this.layout.removeChild(child);
-      child.dispatch && child.dispatch(removeContextChild());
+      if(instanceOfStyleContextComponentType(child))
+        child.dispatch && child.dispatch(removeContextChild());
     }
 
     removeChildren() {
