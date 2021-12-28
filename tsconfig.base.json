@@ -1,0 +1,21 @@
+{
+    "compilerOptions": {
+      "allowJs": true,
+      "checkJs": false,
+      "skipLibCheck": true,
+      "sourceMap": true,
+      "noEmit": false,
+      "declaration": true,
+      "composite": true,
+      "target": "ES5",
+      "moduleResolution": "Node",
+      "module": "CommonJS",
+      "resolveJsonModule": true,
+      "isolatedModules": false,
+      "esModuleInterop": true,
+      "lib": [
+        "ES2015",
+        "ES2017"
+      ]
+    }
+}

@@ -1,0 +1,17 @@
+{
+  "name": "@smartface/core",
+  "version": "1.0.0-rc.0",
+  "description": "Smartface Core",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "author": "Cenk Cetinkaya<cenk.cetinkaya@smartface.io>",
+  "license": "MIT",
+  "dependencies": {
+    "typescript": "4.5.4"
+  },
+  "publishConfig": {"access": "public"},
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc -w"
+  }
+}
