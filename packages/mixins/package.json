@@ -26,6 +26,6 @@
     "typescript": "4.5.4"
   },
   "dependencies": {
-    "@smartface/core": "^1.0.0-rc.0"
+    "@smartface/core": "^1.0.0-rc.1"
   }
 }
