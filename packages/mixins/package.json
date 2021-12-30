@@ -1,24 +1,26 @@
 {
   "name": "@smartface/mixins",
-  "version": "1.0.0-rc.0",
+  "version": "1.0.0-rc.1",
   "description": "Smartface Mixins",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "author": "Cenk Cetinkaya<cenk.cetinkaya@smartface.io>",
   "license": "MIT",
-  "publishConfig": {"access": "public"},
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build": "tsc",
     "watch": "tsc -w"
   },
   "peerDependenciesMeta": {
     "@smartface/native": {
-        "optional": true
+      "optional": true
     }
   },
   "peerDependencies": {
-      "@smartface/native": "^4.3.4 || ^4.3.5-beta || ^4.3.5.alpha || ^4.3.6-beta || ^4.3.6.alpha",
-      "@smartface/router": "^2.1.0"
+    "@smartface/native": "^4.3.4 || ^4.3.5-beta || ^4.3.5.alpha || ^4.3.6-beta || ^4.3.6.alpha",
+    "@smartface/router": "^2.1.0"
   },
   "devDependencies": {
     "@smartface/native": "^4.3.4 || ^4.3.5-beta || ^4.3.5.alpha || ^4.3.6-beta || ^4.3.6.alpha",

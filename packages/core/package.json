@@ -1,6 +1,6 @@
 {
   "name": "@smartface/core",
-  "version": "1.0.0-rc.0",
+  "version": "1.0.0-rc.1",
   "description": "Smartface Core",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -9,7 +9,9 @@
   "devDependencies": {
     "typescript": "4.5.4"
   },
-  "publishConfig": {"access": "public"},
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build": "tsc",
     "watch": "tsc -w"
