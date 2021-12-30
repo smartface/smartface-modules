@@ -69,5 +69,6 @@
             "path": "./node_modules/cz-conventional-changelog",
             "config": "./.cz-config.js"
         }
-    }
+    },
+    "gitHead": "b216dec6c5a29af55b4fbfd26baf1f530d034fd4"
 }

@@ -29,5 +29,6 @@
   },
   "dependencies": {
     "@smartface/core": "^1.0.0-rc.1"
-  }
+  },
+  "gitHead": "b216dec6c5a29af55b4fbfd26baf1f530d034fd4"
 }
