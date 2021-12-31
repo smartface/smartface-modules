@@ -13,7 +13,7 @@ const backButtonImage: Image = Image.createFromFile('images://arrow_back.png');
  * Dismiss button mixin for modal-pages
  */
 
-export function withDismissButton<T extends new (...params: any[]) => Page = new (...params: any[]) => Page>(PageClass: T) {
+export function withDismissAndBackButton<T extends new (...params: any[]) => Page = new (...params: any[]) => Page>(PageClass: T) {
   const klass = class extends (PageClass as any) {
     /**
      * Initializes a dismiss button if the router is modal and in the first page

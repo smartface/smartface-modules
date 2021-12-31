@@ -1,1 +1,1 @@
-export * from "./withDismissButton";
+export * from "./withDismissAndBackButton";
