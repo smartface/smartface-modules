@@ -10,7 +10,7 @@ import Router from '@smartface/router/lib/router/Router';
 const closeButtonImage: Image = Image.createFromFile('images://close_icon.png');
 const backButtonImage: Image = Image.createFromFile('images://arrow_back.png');
 /**
- * Dismiss button mixin for modal-pages
+ * Dismiss and back button mixin for modal-pages
  */
 
 export function withDismissAndBackButton<T extends new (...params: any[]) => Page = new (...params: any[]) => Page>(PageClass: T) {
