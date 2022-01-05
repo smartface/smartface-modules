@@ -1,6 +1,6 @@
 {
     "name": "@smartface/styling-context",
-    "version": "1.0.2",
+    "version": "1.1.0",
     "description": "Smartface Styling Context",
     "scripts": {
         "test": "mocha --compilers js:babel-core/register --debug ./test/**/*.test.js",
@@ -58,7 +58,7 @@
         "@smartface/native": "^4.3.4 || ^4.3.5-beta || ^4.3.5.alpha || ^4.3.6-beta || ^4.3.6.alpha"
     },
     "dependencies": {
-        "@smartface/contx": "^4.1.1",
+        "@smartface/contx": "^4.2.0",
         "@smartface/styler": "^2.0.0"
     },
     "config": {
