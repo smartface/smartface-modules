@@ -7,14 +7,13 @@ import { MergeCtor } from "./mixin";
 
 export function styleableContainerComponentMixin<T extends any>(ViewClass: T) {
   const Component =  class extends (ViewClass as any) implements Styleable {
-    addChild(
-      child: View<any>
-    ): void {
-        
-      if(this.layout)
-        this.layout?.addChild(child);
-      else
-        super.addChild(child);
+    addChild(child: View<any>, name?: string, classNames?: string, userProps?: { [key: string]: any }, defaultClassNames?: string): void {
+      if (this.layout) {
+        this.layout.addChild(child);
+      }
+      if (name) {
+        this.addStyleableChild(child, name, classNames, userProps, defaultClassNames);
+      }
     }
 
     addStyleableChild(

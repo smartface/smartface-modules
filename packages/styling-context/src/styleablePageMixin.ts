@@ -29,11 +29,13 @@ export function styleablePageMixin<
       throw new Error("Get Name is not implemented");
     }
 
-    addChild(
-      child: View<any>
-    ): void {
-      if(this.layout)
+    addChild(child: View<any>, name?: string, classNames?: string, userProps?: { [key: string]: any }, defaultClassNames?: string): void {
+      if (this.layout) {
         this.layout.addChild(child);
+      }
+      if (name) {
+        this.addStyleableChild(child, name, classNames, userProps, defaultClassNames);
+      }
     }
 
     addStyleableChild(
