@@ -4,20 +4,18 @@ import Color from '@smartface/native/ui/color';
 import HeaderBarItem from '@smartface/native/ui/headerbaritem';
 import Image from '@smartface/native/ui/image';
 import Page from '@smartface/native/ui/page';
-import { NativeStackRouter } from '@smartface/router';
-import Router from '@smartface/router/lib/router/Router';
+import { NativeStackRouter, BaseRouter as Router } from '@smartface/router';
 
 const closeButtonImage: Image = Image.createFromFile('images://close_icon.png');
 const backButtonImage: Image = Image.createFromFile('images://arrow_back.png');
-/**
- * Dismiss and back button mixin for modal-pages
- */
 
 export function withDismissAndBackButton<T extends new (...params: any[]) => Page = new (...params: any[]) => Page>(PageClass: T) {
   const klass = class extends (PageClass as any) {
     /**
-     * Initializes a dismiss button if the router is modal and in the first page
-     *
+     * Dismiss and back button mixin for modal-pages
+     * When no parameter is given, the default image of images://close_icon.png will be used.
+     * If you want to use a different image on all across the project, you can change the image itself to an image you desired.
+     * Please note that default tintColor for the images are white.
      * @param router
      * @param options
      */
@@ -32,8 +30,11 @@ export function withDismissAndBackButton<T extends new (...params: any[]) => Pag
       }
     }
     /**
-     * Initializes a back button if the router is not on the first page on the stack
-     *
+     * Initializes a back button if the router is not on the first page on the stack.
+     * If the current page is on the first page on the router stack, setLeftItem=false will be invoked for Android.
+     * When no parameter is given, the default image of images://arrow_back.png will be used.
+     * If you want to use a different image on all across the project, you can change the image itself to an image you desired.
+     * Please note that default tintColor for the images are white.
      * @param router
      * @param options
      */
@@ -141,7 +142,11 @@ export function withDismissAndBackButton<T extends new (...params: any[]) => Pag
     }
 
     public initBackButtononAndroid(router: NativeStackRouter, options: DismissOptions) {
-      if (System.OS !== System.OSType.ANDROID && !router.canGoBack(-1)) {
+      if (System.OS !== System.OSType.ANDROID) {
+        return;
+      }
+      if (!router.canGoBack(-1)) {
+        this.headerBar.leftItemEnabled = false; //Fixes Android leaving a back button image on the first page by itself
         return;
       }
       const hbi = new HeaderBarItem({
@@ -172,8 +177,24 @@ export function withDismissAndBackButton<T extends new (...params: any[]) => Pag
 }
 
 type DismissOptions = {
+  /**
+   * Default image values are described in the function description.
+   */
   image?: Image;
+  /**
+   * Position of the headerbar icon.
+   * Assigning left will invoke setLeftItem, assigning right will invoke setItems method.
+   * @default "left"
+   */
   position?: 'left' | 'right';
+  /**
+   * Tint color of the headerbar icon.
+   * @default Color.WHITE
+   */
   color?: Color;
+  /**
+   * If needed, you can also assign a text instead of a button.
+   * Assigning this will override image variable, so only use this if you don't want to set an image.
+   */
   text?: string;
 };
