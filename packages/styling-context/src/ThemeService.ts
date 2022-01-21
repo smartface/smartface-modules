@@ -1,6 +1,7 @@
 import Data from '@smartface/native/global/data';
 import { createThemeContextBound } from '@smartface/contx/lib/styling/ThemeContext';
 import { StylingBoundry } from 'StylingBoundry';
+import buildProps from 'sfCorePropFactory';
 
 type ThemeListener = (themeName: string) => void;
 const themeListenerKeys: {}[] = [];
@@ -45,6 +46,10 @@ export class ThemeService {
 
     getStyle(className: string) {
         return this.themeBoundry()(className);
+    }
+
+    getNativeStyle(className: string) {
+        return buildProps(this.themeBoundry()(className) || {})
     }
 
     changeTheme(name: string) {
