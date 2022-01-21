@@ -1,7 +1,6 @@
-import Data from '@smartface/native/global/data';
 import { createThemeContextBound } from '@smartface/contx/lib/styling/ThemeContext';
-import { StylingBoundry } from 'StylingBoundry';
-import buildProps from 'sfCorePropFactory';
+import { StylingBoundry } from './StylingBoundry';
+import buildProps from './sfCorePropFactory';
 
 type ThemeListener = (themeName: string) => void;
 const themeListenerKeys: {}[] = [];
