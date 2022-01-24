@@ -1,6 +1,6 @@
 {
     "name": "@smartface/styling-context",
-    "version": "1.1.3",
+    "version": "1.1.4",
     "description": "Smartface Styling Context",
     "scripts": {
         "test": "mocha --compilers js:babel-core/register --debug ./test/**/*.test.js",
