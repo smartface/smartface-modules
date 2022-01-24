@@ -99,7 +99,7 @@ export function withDismissAndBackButton<T extends new (...params: any[]) => Pag
       });
       /**
        * This check is written due to usage on Android. 
-       * Also, on iOS title and image cannot be set at the same time as well.
+       * Also on iOS title and image cannot be set at the same time as well.
        */
       if(options?.text) {
         hbi.title = options.text;
