@@ -3,6 +3,8 @@ import { Styleable } from "./Styleable";
 import addContextChild from "./action/addChild";
 import removeContextChild from "./action/removeChild";
 import { MergeCtor } from "./mixin";
+import { ConstructorOf } from "./ConstructorOf";
+import { StyleableDispatch } from ".";
 
 export function styleableContainerComponentMixin<T extends any>(ViewClass: T) {
   const Component =  class extends (ViewClass as any) implements Styleable {
@@ -37,4 +39,11 @@ export function styleableContainerComponentMixin<T extends any>(ViewClass: T) {
   return Component as unknown as MergeCtor<typeof Component, typeof ViewClass>;
 }
 
+export function styleableComponentMixin<
+  T extends ConstructorOf<any> = ConstructorOf<any>
+>(ViewClass: T) {
+  return class extends (ViewClass as unknown as T) implements Styleable {
+    dispatch?: StyleableDispatch;
+  };
+}
 

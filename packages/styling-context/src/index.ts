@@ -81,11 +81,3 @@ export type componentContextPatch = <T = any>(
     component: T,
     name: string,
 ) => StyleContextComponentType<T>;
-
-export function styleableComponentMixin<
-  T extends ConstructorOf<any> = ConstructorOf<any>
->(ViewClass: T) {
-  return class extends (ViewClass as unknown as T) implements Styleable {
-    dispatch?: StyleableDispatch;
-  };
-}
