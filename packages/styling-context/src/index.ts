@@ -1,13 +1,12 @@
 import type View from "@smartface/native/ui/view";
 
-export * as addChild from "./action/addChild";
-export * as removeChild from "./action/removeChild";
-export * as removeChildren from "./action/removeChildren";
-export * as pageContext from "./pageContext";
-export * as pageContextPatch from "./pageContextPatch";
-export * as componentContextPatch from "./componentContextPatch";
-export * as ThemeService from "./ThemeService";
-
+export { default as addChild } from "./action/addChild";
+export { default as removeChild } from "./action/removeChild";
+export { default as removeChildren } from "./action/removeChildren";
+export { default as pageContext } from "./pageContext";
+export { default as pageContextPatch } from "./pageContextPatch";
+export { default as componentContextPatch } from "./componentContextPatch";
+export { ThemeService } from "./ThemeService";
 
 export interface IViewContainer {
     addChild(child: View): void;
@@ -53,6 +52,10 @@ type Actions = {
         paddingTop?: number;
         paddingBottom?: number;
     }
+} | 
+{
+    type: "updateUserStyle",
+    userStyle: { [key: string]: any }
 }
 
 export type StyleableDispatch = (action: Actions) => void;

@@ -2,6 +2,8 @@
     "name": "@smartface/styling-context",
     "version": "1.1.4",
     "description": "Smartface Styling Context",
+    "main": "lib/index.js",
+    "types": "lib/index.d.ts",
     "scripts": {
         "test": "mocha --compilers js:babel-core/register --debug ./test/**/*.test.js",
         "test:watch": "mocha --watch --compilers js:babel-core/register --debug ./test/**/*.test.js",
