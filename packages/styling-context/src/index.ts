@@ -8,6 +8,8 @@ export * as pageContext from "./pageContext";
 export * as pageContextPatch from "./pageContextPatch";
 export * as componentContextPatch from "./componentContextPatch";
 export * as ThemeService from "./ThemeService";
+import { ConstructorOf } from "./ConstructorOf";
+import { Styleable } from "./Styleable";
 
 
 export interface IViewContainer {
@@ -56,8 +58,10 @@ type Actions = {
     }
 }
 
+export type StyleableDispatch = (action: Actions) => void;
+
 export type StyleContextComponent = {
-    dispatch?: (action: Actions) => void;
+    dispatch?: StyleableDispatch;
 };
 export type StyleContextAddChild = {
     addStyleableChild(
@@ -78,3 +82,10 @@ export type componentContextPatch = <T = any>(
     name: string,
 ) => StyleContextComponentType<T>;
 
+export function styleableComponentMixin<
+  T extends ConstructorOf<any> = ConstructorOf<any>
+>(ViewClass: T) {
+  return class extends (ViewClass as unknown as T) implements Styleable {
+    dispatch?: StyleableDispatch;
+  };
+}
