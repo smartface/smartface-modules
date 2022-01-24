@@ -16,7 +16,7 @@ export interface IViewContainer {
 type Actions = {
     type: "addChild",
     name: string,
-    component: any,
+    component: View,
     classNames?: string[] | string,
     defaultClassNames?: string[] | string,
     userStyle?: { [key: string]: any }
@@ -29,7 +29,7 @@ type Actions = {
 } |
 {
     type: "updateComponent",
-    component: any
+    component: View
 } |
 {
     type: "forceComponentUpdate",
@@ -56,6 +56,14 @@ type Actions = {
 {
     type: "updateUserStyle",
     userStyle: { [key: string]: any }
+} | 
+{
+    type: "pushClassNames",
+    classNames: string[] | string;
+} | 
+{
+    type: "removeClassName",
+    className: string;
 }
 
 export type StyleableDispatch = (action: Actions) => void;
