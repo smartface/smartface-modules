@@ -69,7 +69,7 @@ export function withDismissAndBackButton<T extends new (...params: any[]) => Pag
         closeButtonHbi.title = options.text;
       }
       else {
-        closeButtonHbi.image = options?.image || null;
+        closeButtonHbi.image = options?.image || "";
       }
       
       if (options?.position === 'left') {
@@ -105,7 +105,7 @@ export function withDismissAndBackButton<T extends new (...params: any[]) => Pag
         hbi.title = options.text;
       }
       else {
-        hbi.image = options?.image || null;
+        hbi.image = options?.image || '';
       }
       
       /** First page in modal */
@@ -129,7 +129,7 @@ export function withDismissAndBackButton<T extends new (...params: any[]) => Pag
         hbi.title = options.text;
       }
       else {
-        hbi.image = options?.image || null;
+        hbi.image = options?.image || '';
       }
 
       if (options?.position === 'left') {
@@ -162,7 +162,7 @@ export function withDismissAndBackButton<T extends new (...params: any[]) => Pag
         hbi.title = options.text;
       }
       else {
-        hbi.image = options?.image || null;
+        hbi.image = options?.image || '';
       }
       if (options?.position === 'left') {
         this.headerBar.setLeftItem(hbi);
