@@ -1,5 +1,4 @@
 import type View from "@smartface/native/ui/view";
-import { ThemeService } from "ThemeService";
 
 export * as addChild from "./action/addChild";
 export * as removeChild from "./action/removeChild";
@@ -8,8 +7,6 @@ export * as pageContext from "./pageContext";
 export * as pageContextPatch from "./pageContextPatch";
 export * as componentContextPatch from "./componentContextPatch";
 export * as ThemeService from "./ThemeService";
-import { ConstructorOf } from "./ConstructorOf";
-import { Styleable } from "./Styleable";
 
 
 export interface IViewContainer {
