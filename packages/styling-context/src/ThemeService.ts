@@ -1,4 +1,5 @@
 import { createThemeContextBound } from '@smartface/contx/lib/styling/ThemeContext';
+import { pageContext } from '.';
 import { StylingBoundry } from './StylingBoundry';
 import buildProps from './sfCorePropFactory';
 
@@ -19,7 +20,7 @@ export class ThemeService {
         isDefault: boolean;
     }[]) {
         if (ThemeService.instance) {
-            throw new Error("ThemeService cannot be instantiated one more");
+            throw new Error("ThemeService cannot be instantiated more than one time.");
         }
 
         ThemeService.instance = this;
@@ -27,6 +28,10 @@ export class ThemeService {
 
     addPage(page: StylingBoundry, name: string) {
         return this.themeBoundry(page, name);
+    }
+
+    addGlobalComponent(component: StylingBoundry, name: string) {
+        return this.addPage(pageContext(component, name), name);
     }
 
     onChange(listener: ThemeListener) {
