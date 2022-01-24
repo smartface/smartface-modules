@@ -1,5 +1,5 @@
 import createPageContext from "./pageContext";
-import patchMethod from '../util/patchMethod';
+import patchMethod from '@smartface/contx/lib/util/patchMethod';
 import { ThemeService } from "./ThemeService";
 
 const Application = require("@smartface/native/application");
