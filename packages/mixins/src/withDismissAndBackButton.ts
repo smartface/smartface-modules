@@ -58,7 +58,6 @@ export function withDismissAndBackButton<T extends new (...params: any[]) => Pag
         return;
       }
       const closeButtonHbi = new HeaderBarItem({
-        color: options?.color || null,
         onPress: () => router.goBack()
       });
       /**
@@ -71,6 +70,7 @@ export function withDismissAndBackButton<T extends new (...params: any[]) => Pag
       else {
         closeButtonHbi.image = options?.image || "";
       }
+      closeButtonHbi.color = options?.color || Color.WHITE;
       
       if (options?.position === 'left') {
         this.headerBar.setLeftItem(closeButtonHbi);
@@ -150,7 +150,6 @@ export function withDismissAndBackButton<T extends new (...params: any[]) => Pag
         return;
       }
       const hbi = new HeaderBarItem({
-        color: options?.color || null,
         onPress: () => router.goBack(),
       });
 
@@ -164,6 +163,8 @@ export function withDismissAndBackButton<T extends new (...params: any[]) => Pag
       else {
         hbi.image = options?.image || '';
       }
+      hbi.color = options?.color || Color.WHITE;
+
       if (options?.position === 'left') {
         this.headerBar.setLeftItem(hbi);
         this.headerBar.leftItemEnabled = true;
