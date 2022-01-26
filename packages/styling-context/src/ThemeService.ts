@@ -2,6 +2,7 @@ import { createThemeContextBound } from '@smartface/contx/lib/styling/ThemeConte
 import { pageContext } from '.';
 import { StylingBoundry } from './StylingBoundry';
 import buildProps from './sfCorePropFactory';
+import View from '@smartface/native/ui/view';
 
 type ThemeListener = (themeName: string) => void;
 const themeListenerKeys: {}[] = [];
@@ -30,7 +31,7 @@ export class ThemeService {
         return this.themeBoundry(page, name);
     }
 
-    addGlobalComponent(component: StylingBoundry, name: string) {
+    addGlobalComponent(component: View, name: string) {
         return this.addPage(pageContext(component, name), name);
     }
 

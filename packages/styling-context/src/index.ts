@@ -72,13 +72,13 @@ export type StyleContextComponent = {
     dispatch?: StyleableDispatch;
 };
 export type StyleContextAddChild = {
-    addStyleableChild(
+    addStyleableChild?: (
         child: View,
         name?: string,
         classNames?: string,
         userProps?: { [key: string]: any },
         defaultClassNames?: string,
-    ): void;
+    ) => void;
 };
 export type StyleContextContainerComponent = IViewContainer & StyleContextAddChild & StyleContextComponent;
 export type StyleContextComponentType<T> = T &
