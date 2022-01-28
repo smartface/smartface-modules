@@ -4,10 +4,25 @@ import addContextChild from "./action/addChild";
 import removeContextChild from "./action/removeChild";
 import { MergeCtor } from "./mixin";
 import { ConstructorOf } from "./ConstructorOf";
-import { StyleableDispatch } from ".";
+import type { StyleableDispatch } from ".";
 
-export function styleableContainerComponentMixin<T extends any>(ViewClass: T) {
-  const Component =  class extends (ViewClass as any) implements Styleable {
+interface iStyleableContainer extends Styleable {
+  addChild(child: View<any>, name?: string, classNames?: string, userProps?: { [key: string]: any }, defaultClassNames?: string): void;
+
+  addStyleableChild(
+    child: View<any>,
+    name: string,
+    classNames?: string,
+    userProps?: { [key: string]: any },
+    defaultClassNames?: string
+  ): void;
+
+  removeChild(view: View<any>): void;
+  dispatch?: StyleableDispatch;
+}
+
+export function styleableContainerComponentMixin<T extends ConstructorOf<any>>(ViewClass: T) {
+  const Component =  class extends ViewClass implements iStyleableContainer {
     addChild(child: View<any>, name?: string, classNames?: string, userProps?: { [key: string]: any }, defaultClassNames?: string): void {
       if (this.layout) {
         this.layout.addChild(child);
@@ -33,10 +48,10 @@ export function styleableContainerComponentMixin<T extends any>(ViewClass: T) {
       this.dispatch?.(removeContextChild());
       super.removeChild?.(view);
     }
-    dispatch?: (action: { [key: string]: any }) => void;
+    dispatch?: StyleableDispatch;
   };
 
-  return Component as unknown as MergeCtor<typeof Component, typeof ViewClass>;
+  return Component as unknown as MergeCtor<ConstructorOf<iStyleableContainer>, typeof ViewClass>;
 }
 
 export function styleableComponentMixin<
@@ -44,6 +59,5 @@ export function styleableComponentMixin<
 >(ViewClass: T) {
   return class extends (ViewClass as unknown as T) implements Styleable {
     dispatch?: StyleableDispatch;
-  };
+  } as unknown as MergeCtor<ConstructorOf<Styleable>, typeof ViewClass>;
 }
-

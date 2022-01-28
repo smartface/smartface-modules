@@ -13,7 +13,7 @@ export interface IViewContainer {
     removeChild(child: View): void;
 }
 
-type Actions = {
+export type Actions = {
     type: "addChild",
     name: string,
     component: View,
