@@ -1,1 +1,1 @@
-export type ConstructorOf<T = {}> = new (...args: any[]) => T;
+export type ConstructorOf<T = {}, U extends any[] = any[]> = new (...args: U) => T;

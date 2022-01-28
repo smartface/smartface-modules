@@ -4,11 +4,14 @@ import { StyleContextComponent } from ".";
 
 export interface StyleablePage {
   readonly dispatch?: StyleContextComponent['dispatch'];
+  getName(): string;
+  addChild(child: View<any>, name?: string, classNames?: string, userProps?: { [key: string]: any }, defaultClassNames?: string): void;
   addStyleableChild(
-    child: View,
-    name?: string,
+    child: View<any>,
+    name: string,
     classNames?: string,
-    userProps?: { [key: string]: any; },
+    userProps?: { [key: string]: any },
     defaultClassNames?: string
   ): void;
+
 }

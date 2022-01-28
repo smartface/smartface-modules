@@ -7,8 +7,9 @@ import addContextChild from "./action/addChild";
 import removeContextChild from "./action/removeChild";
 import removeContextChildren from "./action/removeChildren";
 import Page = require("@smartface/native/ui/page");
-import { MergeCtor } from "./mixin";
+import { GetProps, MergeCtor } from "./mixin";
 import { instanceOfStyleContextComponentType } from "./instanceOfStyleContextComponentType";
+import type { ConstructorOf } from "./ConstructorOf";
 
 export function styleablePageMixin<
   T extends typeof Page
@@ -18,8 +19,8 @@ export function styleablePageMixin<
     themeContext?: (action?: any) => void;
     headerBarUpdated: boolean = false;
 
-    constructor(args: any) {
-      super(args);
+    constructor(options?: any) {
+      super(options);
       if (this.ios) {
         this.ios.onSafeAreaPaddingChange = this.onSafeAreaPaddingChange;
       }
@@ -148,5 +149,5 @@ export function styleablePageMixin<
     }
   }
 
-  return StyleablePageClass as MergeCtor<typeof StyleablePageClass, T>;
+  return StyleablePageClass as unknown as MergeCtor<ConstructorOf<StyleablePage, GetProps<T>>, T>;
 }
