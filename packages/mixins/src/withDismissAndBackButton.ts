@@ -9,12 +9,12 @@ import { NativeStackRouter, BaseRouter as Router } from '@smartface/router';
 const closeButtonImage: Image = Image.createFromFile('images://close_icon.png');
 const backButtonImage: Image = Image.createFromFile('images://arrow_back.png');
 interface iDismissBackbutton {
-  initDismissButton(router: Router, options: DismissOptions): void;
-  initBackButton(router: Router, options: DismissOptions): void;
+  initDismissButton(router: Router, options?: DismissOptions): void;
+  initBackButton(router: Router, options?: DismissOptions): void;
   initDismissButtononAndroid(router: NativeStackRouter, options?: DismissOptions): void;
   initDismissButtononiOS(router: NativeStackRouter, options?: DismissOptions): void;
-  initBackButtononiOS(router: NativeStackRouter, options: DismissOptions): void;
-  initBackButtononAndroid(router: NativeStackRouter, options: DismissOptions): void;
+  initBackButtononiOS(router: NativeStackRouter, options?: DismissOptions): void;
+  initBackButtononAndroid(router: NativeStackRouter, options?: DismissOptions): void;
 }
 export function withDismissAndBackButton<T extends new (...params: any[]) => Page = new (...params: any[]) => Page>(PageClass: T) {
   const klass = class extends (PageClass as any) implements iDismissBackbutton {
