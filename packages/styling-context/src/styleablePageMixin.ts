@@ -151,3 +151,8 @@ export function styleablePageMixin<
 
   return StyleablePageClass as unknown as MergeCtor<ConstructorOf<StyleablePage, GetProps<T>>, T>;
 }
+
+class test extends styleablePageMixin(Page) {
+  addChild(child: View<any>, name?: string, classNames?: string, userProps?: { [key: string]: any; }, defaultClassNames?: string): void {
+  }
+}

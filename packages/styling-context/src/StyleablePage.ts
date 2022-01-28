@@ -13,5 +13,6 @@ export interface StyleablePage {
     userProps?: { [key: string]: any },
     defaultClassNames?: string
   ): void;
-
+  removeChild(child: View<any>):void;
+  removeChildren():void;
 }
