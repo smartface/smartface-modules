@@ -1,4 +1,4 @@
-import { MergeCtor } from '@smartface/core';
+import { ConstructorOf, MergeCtor } from '@smartface/core';
 import System from '@smartface/native/device/system';
 import Color from '@smartface/native/ui/color';
 import HeaderBarItem from '@smartface/native/ui/headerbaritem';
@@ -8,9 +8,16 @@ import { NativeStackRouter, BaseRouter as Router } from '@smartface/router';
 
 const closeButtonImage: Image = Image.createFromFile('images://close_icon.png');
 const backButtonImage: Image = Image.createFromFile('images://arrow_back.png');
-
+interface iDismissBackbutton {
+  initDismissButton(router: Router, options: DismissOptions): void;
+  initBackButton(router: Router, options: DismissOptions): void;
+  initDismissButtononAndroid(router: NativeStackRouter, options?: DismissOptions): void;
+  initDismissButtononiOS(router: NativeStackRouter, options?: DismissOptions): void;
+  initBackButtononiOS(router: NativeStackRouter, options: DismissOptions): void;
+  initBackButtononAndroid(router: NativeStackRouter, options: DismissOptions): void;
+}
 export function withDismissAndBackButton<T extends new (...params: any[]) => Page = new (...params: any[]) => Page>(PageClass: T) {
-  const klass = class extends (PageClass as any) {
+  const klass = class extends (PageClass as any) implements iDismissBackbutton {
     /**
      * Dismiss and back button mixin for modal-pages
      * When no parameter is given, the default image of images://close_icon.png will be used.
@@ -19,7 +26,7 @@ export function withDismissAndBackButton<T extends new (...params: any[]) => Pag
      * @param router
      * @param options
      */
-    public initDismissButton(router: Router, options: DismissOptions = {}) {
+    initDismissButton(router: Router, options: DismissOptions = {}) {
       options.position ||= 'left';
       options.image ||= closeButtonImage;
       options.color ||= Color.WHITE;
@@ -38,7 +45,7 @@ export function withDismissAndBackButton<T extends new (...params: any[]) => Pag
      * @param router
      * @param options
      */
-    public initBackButton(router: Router, options: DismissOptions = {}) {
+    initBackButton(router: Router, options: DismissOptions = {}) {
       options.position ||= 'left';
       options.image ||= backButtonImage;
       options.color ||= Color.WHITE;
@@ -49,7 +56,7 @@ export function withDismissAndBackButton<T extends new (...params: any[]) => Pag
       }
     }
 
-    public initDismissButtononAndroid(router: NativeStackRouter, options?: DismissOptions) {
+    initDismissButtononAndroid(router: NativeStackRouter, options?: DismissOptions) {
       if (System.OS !== System.OSType.ANDROID) {
         return;
       }
@@ -82,7 +89,7 @@ export function withDismissAndBackButton<T extends new (...params: any[]) => Pag
       }
     }
 
-    public initDismissButtononiOS(router: NativeStackRouter, options?: DismissOptions) {
+    initDismissButtononiOS(router: NativeStackRouter, options?: DismissOptions) {
       if (System.OS !== System.OSType.IOS) {
         return;
       }
@@ -113,7 +120,7 @@ export function withDismissAndBackButton<T extends new (...params: any[]) => Pag
       this.headerBar.leftItemEnabled = true;
     }
 
-    public initBackButtononiOS(router: NativeStackRouter, options: DismissOptions) {
+    initBackButtononiOS(router: NativeStackRouter, options: DismissOptions) {
       if (System.OS !== System.OSType.IOS && !router.canGoBack(-1)) {
         return;
       }
@@ -141,7 +148,7 @@ export function withDismissAndBackButton<T extends new (...params: any[]) => Pag
       }
     }
 
-    public initBackButtononAndroid(router: NativeStackRouter, options: DismissOptions) {
+    initBackButtononAndroid(router: NativeStackRouter, options: DismissOptions) {
       if (System.OS !== System.OSType.ANDROID) {
         return;
       }
@@ -174,7 +181,7 @@ export function withDismissAndBackButton<T extends new (...params: any[]) => Pag
       }
     }
   };
-  return klass as unknown as MergeCtor<typeof klass, typeof PageClass>;
+  return klass as unknown as MergeCtor<ConstructorOf<iDismissBackbutton>, typeof PageClass>;
 }
 
 type DismissOptions = {
