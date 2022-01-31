@@ -23,14 +23,12 @@ export function withDismissAndBackButton<T extends new (...params: any[]) => Pag
      * When no parameter is given, the default image of images://close_icon.png will be used.
      * Assigning text will remove the image. You cannot use both at the same time.
      * If you want to use a different image on all across the project, you can change the image itself to an image you desired.
-     * Please note that default tintColor for the images are white.
      * @param router
      * @param options
      */
     initDismissButton(router: Router, options: DismissOptions = {}) {
       options.position ||= 'left';
       options.image ||= closeButtonImage;
-      options.color ||= Color.WHITE;
 
       if (router instanceof NativeStackRouter) {
         this.initDismissButtononAndroid(router, options);
@@ -43,14 +41,12 @@ export function withDismissAndBackButton<T extends new (...params: any[]) => Pag
      * When no parameter is given, the default image of images://arrow_back.png will be used.
      * Assigning text will remove the image. You cannot use both at the same time.
      * If you want to use a different image on all across the project, you can change the image itself to an image you desired.
-     * Please note that default tintColor for the images are white.
      * @param router
      * @param options
      */
     initBackButton(router: Router, options: DismissOptions = {}) {
       options.position ||= 'left';
       options.image ||= backButtonImage;
-      options.color ||= Color.WHITE;
 
       if (router instanceof NativeStackRouter) {
         this.initBackButtononAndroid(router, options);
@@ -79,7 +75,9 @@ export function withDismissAndBackButton<T extends new (...params: any[]) => Pag
       else {
         closeButtonHbi.image = options?.image || closeButtonImage;
       }
-      closeButtonHbi.color = options?.color || Color.WHITE;
+      if(options?.color) {
+        closeButtonHbi.color = options.color;
+      }
       
       if (options?.position === 'left') {
         this.headerBar.leftItemEnabled = false;
@@ -101,8 +99,6 @@ export function withDismissAndBackButton<T extends new (...params: any[]) => Pag
         return;
       }
       const hbi = new HeaderBarItem({
-        color: options?.color || null,
-        image: options?.image || null,
         onPress: () => {
           router.goBack();
         }
@@ -117,6 +113,9 @@ export function withDismissAndBackButton<T extends new (...params: any[]) => Pag
       else {
         hbi.image = options?.image || closeButtonImage;
       }
+      if (options?.color) {
+        hbi.color = options.color;
+      }
       
       /** First page in modal */
       this.headerBar.leftItemEnabled = false;
@@ -129,7 +128,6 @@ export function withDismissAndBackButton<T extends new (...params: any[]) => Pag
         return;
       }
       const hbi = new HeaderBarItem({
-        color: options?.color || null,
         onPress: () => router.goBack(),
       });
       /**
@@ -143,6 +141,10 @@ export function withDismissAndBackButton<T extends new (...params: any[]) => Pag
         hbi.image = options?.image || backButtonImage;
       }
 
+      if (options?.color) {
+        hbi.color = options.color;
+      }
+      
       if (options?.position === 'left') {
         this.headerBar.leftItemEnabled = false;
         this.headerBar.setLeftItem(hbi);
@@ -175,7 +177,9 @@ export function withDismissAndBackButton<T extends new (...params: any[]) => Pag
       else {
         hbi.image = options?.image || backButtonImage;
       }
-      hbi.color = options?.color || Color.WHITE;
+      if(options?.color) {
+        hbi.color = options.color;
+      }
 
       if (options?.position === 'left') {
         this.headerBar.leftItemEnabled = false;
@@ -202,13 +206,13 @@ type DismissOptions = {
    */
   position?: 'left' | 'right';
   /**
-   * Tint color of the headerbar icon.
-   * @default Color.WHITE
+   * Tint color of the headerbar icon. If given, the selected tint will be applied.
+   * If not, it will take whatever headerbar value is set on theme.f
    */
   color?: Color;
   /**
    * If needed, you can also assign a text instead of a button.
    * Assigning this will override image variable, so only use this if you don't want to set an image.
    */
-  text?: string;
+  text?: string
 };

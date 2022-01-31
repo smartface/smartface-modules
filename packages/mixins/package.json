@@ -1,6 +1,6 @@
 {
   "name": "@smartface/mixins",
-  "version": "1.1.3",
+  "version": "1.1.4",
   "description": "Smartface Mixins",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
