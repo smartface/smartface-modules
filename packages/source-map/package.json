@@ -1,0 +1,23 @@
+{
+  "name": "@smartface/source-map",
+  "version": "1.0.0",
+  "description": "Smartface Error Source-map. Used to trace the Typescript Errors",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "author": "Cenk Cetinkaya<cenk.cetinkaya@smartface.io>",
+  "license": "MIT",
+  "dependencies": {
+    "source-map": "0.6.1"
+  },
+  "devDependencies": {
+    "typescript": "4.5.4"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc -w",
+    "prepublish": "tsc"
+  }
+}
