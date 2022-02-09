@@ -7,8 +7,8 @@ import { ConstructorOf } from "./ConstructorOf";
 import type { StyleableDispatch } from ".";
 
 interface iStyleableContainer extends Styleable {
-  addChild(child: View<any>, name?: string, classNames?: string, userProps?: { [key: string]: any }, defaultClassNames?: string): void;
-
+  // addChild(child: View<any>): void;
+  addChildByName(child: View<any>, name?: string, classNames?: string, userProps?: { [key: string]: any }, defaultClassNames?: string): void;
   addStyleableChild(
     child: View<any>,
     name: string,
@@ -23,14 +23,27 @@ interface iStyleableContainer extends Styleable {
 
 export function styleableContainerComponentMixin<T extends ConstructorOf<any>>(ViewClass: T) {
   const Component =  class extends ViewClass implements iStyleableContainer {
-    addChild(child: View<any>, name?: string, classNames?: string, userProps?: { [key: string]: any }, defaultClassNames?: string): void {
+    addChildByName(child: View<any>, name?: string, classNames?: string, userProps?: { [key: string]: any }, defaultClassNames?: string): void {
       if (this.layout) {
         this.layout.addChild(child);
+      } else {
+        this.addChild(child);
       }
       if (name) {
         this.addStyleableChild(child, name, classNames, userProps, defaultClassNames);
       }
     }
+
+    // addChild(child: View<any>, name?: string, classNames?: string, userProps?: { [key: string]: any }, defaultClassNames?: string): void {
+    //   if (this.layout) {
+    //     this.layout.addChild(child);
+    //   } else {
+    //     this.addChild(child);
+    //   }
+    //   if (name) {
+    //     this.addStyleableChild(child, name, classNames, userProps, defaultClassNames);
+    //   }
+    // }
 
     addStyleableChild(
       child: View<any>,
