@@ -6,6 +6,10 @@ export { default as removeChildren } from "./action/removeChildren";
 export { default as pageContext } from "./pageContext";
 export { default as pageContextPatch } from "./pageContextPatch";
 export { default as componentContextPatch } from "./componentContextPatch";
+export { styleableComponentMixin, styleableContainerComponentMixin } from "./styleableComponentMixin";
+export { styleablePageMixin } from './styleablePageMixin';
+export { StyleablePage } from './StyleablePage';
+export { Styleable } from './Styleable'
 export { ThemeService } from "./ThemeService";
 
 export interface IViewContainer {
