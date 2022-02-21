@@ -1,22 +1,22 @@
 {
-    "name": "@smartface/webviewbridge",
-    "version": "1.0.0",
-    "author": "Berk Baski <baskiberk41@gmail.com>",
-    "license": "MIT",
-    "scripts": {
-      "watch": "tsc -w",
-      "build": "tsc",
-      "prepublish": "yarn build"
-    },
-    "publishConfig": {
-      "access": "public"
-    },
-    "devDependencies": {
-      "@smartface/native": "^4.4.0",
-      "typescript": "^4.5.2",
-      "@types/events": "^3.0.0"
-    },
-    "dependencies": {
-      "events": "^3.3.0"
-    }
+  "name": "@smartface/webviewbridge",
+  "version": "1.0.1",
+  "author": "Berk Baski <baskiberk41@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "watch": "tsc -w",
+    "build": "tsc",
+    "prepublish": "yarn build"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "@smartface/native": "^4.4.0",
+    "@types/events": "^3.0.0",
+    "typescript": "^4.5.2"
+  },
+  "dependencies": {
+    "events": "^3.3.0"
   }
+}
