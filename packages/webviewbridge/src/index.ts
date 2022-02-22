@@ -1,1 +1,2 @@
-export { default as WebViewBridge } from './webViewBridge';
+import WebViewBridge from './webViewBridge';
+export default WebViewBridge;
