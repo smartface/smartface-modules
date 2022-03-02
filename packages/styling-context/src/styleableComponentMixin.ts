@@ -6,7 +6,7 @@ import { MergeCtor } from "./mixin";
 import { ConstructorOf } from "./ConstructorOf";
 import type { StyleableDispatch } from ".";
 
-interface iStyleableContainer extends Styleable {
+export interface iStyleableContainer extends Styleable {
   // addChild(child: View<any>): void;
   addChild(child: View<any>, name?: string, classNames?: string, userProps?: { [key: string]: any }, defaultClassNames?: string): void;
   addStyleableChild(
