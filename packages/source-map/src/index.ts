@@ -68,7 +68,7 @@ export function errorStackBySourceMap(e: Error): Error {
   if (!e.stack) return e;
   const lines = e.stack.split("\n");
 
-  const scriptsRoot = System.OS === System.OSType.ANDROID ? `${Path.android.storages.internal}/Android/data/${Application.android.packageName}/cache/assets/` : `${Path.DataDirectory}/scripts/`;
+  const scriptsRoot = System.OS === System.OSType.ANDROID ? `${new Path().android.storages.internal}/Android/data/${Application.android.packageName}/cache/assets/` : `${Path.DataDirectory}/scripts/`;
   let parsedStack: string[];
   try {
     parsedStack = (System.OS === System.OSType.IOS ? parseErrorStackIOS : parseErrorStackAndroid)(lines).map((stackLine, index) => {

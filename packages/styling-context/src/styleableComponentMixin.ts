@@ -1,4 +1,4 @@
-import View = require("@smartface/native/ui/view");
+import View from "@smartface/native/ui/view";
 import { Styleable } from "./Styleable";
 import addContextChild from "./action/addChild";
 import removeContextChild from "./action/removeChild";
