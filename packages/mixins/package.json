@@ -1,6 +1,6 @@
 {
   "name": "@smartface/mixins",
-  "version": "5.0.0-5.0.0-beta.0.0",
+  "version": "5.0.0-beta.0",
   "description": "Smartface Mixins",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -28,7 +28,7 @@
     "typescript": "^4.6.2"
   },
   "dependencies": {
-    "@smartface/core": "^5.0.0-5.0.0-beta.0.0"
+    "@smartface/core": "^5.0.0-beta.0"
   },
-  "gitHead": "b216dec6c5a29af55b4fbfd26baf1f530d034fd4"
+  "gitHead": "d8593f35006c606bdf0bf1cd5053924f185d8ab0"
 }

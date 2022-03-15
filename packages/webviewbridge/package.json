@@ -1,6 +1,6 @@
 {
   "name": "@smartface/webviewbridge",
-  "version": "5.0.0-5.0.0-beta.0.0",
+  "version": "5.0.0-beta.0",
   "author": "Berk Baski <baskiberk41@gmail.com>",
   "license": "MIT",
   "main": "lib/index.js",
@@ -20,5 +20,6 @@
   "dependencies": {
     "@types/events": "^3.0.0",
     "events": "^3.3.0"
-  }
+  },
+  "gitHead": "d8593f35006c606bdf0bf1cd5053924f185d8ab0"
 }
