@@ -4,10 +4,10 @@ import Color from '@smartface/native/ui/color';
 import HeaderBarItem from '@smartface/native/ui/headerbaritem';
 import Image from '@smartface/native/ui/image';
 import Page from '@smartface/native/ui/page';
-import { NativeStackRouter, BaseRouter as Router } from '@smartface/router';
+import { NativeStackRouter, Router } from '@smartface/router';
 
-const closeButtonImage: Image = Image.createFromFile('images://close_icon.png');
-const backButtonImage: Image = Image.createFromFile('images://arrow_back.png');
+const closeButtonImage: Image = Image.createFromFile('images://close_icon.png') as Image;
+const backButtonImage: Image = Image.createFromFile('images://arrow_back.png') as Image;
 interface iDismissBackbutton {
   initDismissButton(router: Router, options?: DismissOptions): void;
   initBackButton(router: Router, options?: DismissOptions): void;
