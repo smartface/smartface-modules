@@ -1,6 +1,6 @@
 {
 	"name": "@smartface/i18n",
-	"version": "5.0.0-beta.0",
+	"version": "5.0.0-5.0.0-beta.0.0",
 	"description": "Powerful internationalization module for Smartface based on formatjs",
 	"main": "lib/index.js",
 	"author": "Alim Öncül",
