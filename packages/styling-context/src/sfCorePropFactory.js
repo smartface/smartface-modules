@@ -2,7 +2,7 @@ import Color from "@smartface/native/ui/color";
 import Font from "@smartface/native/ui/font";
 import Image from "@smartface/native/ui/image";
 import GifImage from "@smartface/native/ui/gifimage";
-import Flex from "@smartface/native/core/flex";
+import Flex from "@smartface/native/core/Flex";
 import { ImageViewFillType } from "@smartface/native/ui/imageview";
 import TextAlignment from "@smartface/native/ui/shared/textalignment";
 import EllipsizeMode from "@smartface/native/ui/shared/android/ellipsizemode";
