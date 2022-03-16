@@ -5,7 +5,7 @@ import GifImage from "@smartface/native/ui/gifimage";
 import Flex from "@smartface/native/core/Flex";
 import { ImageViewFillType } from "@smartface/native/ui/imageview";
 import TextAlignment from "@smartface/native/ui/shared/textalignment";
-import EllipsizeMode from "@smartface/native/ui/shared/android/ellipsizemode";
+import EllipsizeMode from "@smartface/native/ui/shared/ellipsizemode";
 import KeyboardType from "@smartface/native/ui/shared/keyboardtype";
 import { PageOrientation } from "@smartface/native/ui/page";
 import { MapViewType } from "@smartface/native/ui/mapview";
