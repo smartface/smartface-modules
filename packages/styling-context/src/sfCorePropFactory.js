@@ -2,7 +2,7 @@ import Color from "@smartface/native/ui/color";
 import Font from "@smartface/native/ui/font";
 import Image from "@smartface/native/ui/image";
 import GifImage from "@smartface/native/ui/gifimage";
-import Flex from "@smartface/native/core/Flex";
+import FlexLayout from "@smartface/native/ui/flexlayout";
 import { ImageViewFillType } from "@smartface/native/ui/imageview";
 import TextAlignment from "@smartface/native/ui/shared/textalignment";
 import EllipsizeMode from "@smartface/native/ui/shared/ellipsizemode";
@@ -27,15 +27,15 @@ const ENUMS = {
   gradientOrientation: GradientDirection,
   searchViewStyle: SearchViewStyle,
   activityIndicatorViewStyle: ActivityIndicatorViewStyle,
-  alignSelf: Flex.AlignSelf,
-  alignContent: Flex.AlignContent,
-  alignItems: Flex.AlignItems,
-  direction: Flex.Direction,
+  alignSelf: FlexLayout.AlignSelf,
+  alignContent: FlexLayout.AlignContent,
+  alignItems: FlexLayout.AlignItems,
+  direction: FlexLayout.Direction,
   ellipsizeMode: EllipsizeMode,
-  flexDirection: Flex.FlexDirection,
-  flexWrap: Flex.FlexWrap,
-  justifyContent: Flex.JustifyContent,
-  positionType: Flex.PositionType,
+  flexDirection: FlexLayout.FlexDirection,
+  flexWrap: FlexLayout.FlexWrap,
+  justifyContent: FlexLayout.JustifyContent,
+  positionType: FlexLayout.PositionType,
   style: StatusBarStyle,
   shimmeringDirection: ShimmeringDirection,
   ios: {
