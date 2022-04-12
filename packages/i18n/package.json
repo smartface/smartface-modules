@@ -10,7 +10,8 @@
 	"license": "MIT",
 	"scripts": {
 		"build": "rm -R -f ./lib && tsc",
-		"watch": "tsc -w"
+		"watch": "tsc -w",
+		"prepublish": "npm run build"
 	},
 	"devDependencies": {
 		"@types/node": "^15.0.3",
