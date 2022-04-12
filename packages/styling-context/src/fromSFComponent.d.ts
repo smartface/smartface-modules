@@ -1,4 +1,4 @@
-import View = require("@smartface/native/ui/view");
+import View from "@smartface/native/ui/view";
 
 declare function buildContextTree(component: View, name: string, root: any, rootName: string, defaultClassNames: string[] | string, acc: { [key: string]: any }): void;
 

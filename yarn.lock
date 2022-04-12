@@ -924,24 +924,17 @@
   dependencies:
     html-parse-stringify "1.0.2"
 
-"@smartface/native@^4.3.4 || ^4.3.5-beta || ^4.3.5.alpha || ^4.3.6-beta || ^4.3.6.alpha":
-  version "4.3.6-beta.11"
-  resolved "https://registry.yarnpkg.com/@smartface/native/-/native-4.3.6-beta.11.tgz#b46711a194457edcb255aa69871fe028dbc7e9be"
-  integrity sha512-+P7mE7HsC73JSjrNGUBTnGlHcgiR5UWXRrKYSB9Hcol2/e7SsYC1VnlUmBqi5gv9XxWFsziYsoaABemtsMDPzQ==
+"@smartface/native@^5.0.0-alpha.2":
+  version "5.0.0-alpha.2"
+  resolved "https://registry.yarnpkg.com/@smartface/native/-/native-5.0.0-alpha.2.tgz#f9af86238da03b6f13d05f47bb3db4497568a8e7"
+  integrity sha512-C0ZKLIippnX8jGAs/z/Pxy2pQM5ujKrY/1CUW67+mRaENDKoM9hrQlUywe6LRibj67T/FPo97rpPEb5j1sUF2w==
   dependencies:
     events "^3.3.0"
 
-"@smartface/native@^4.4.0":
-  version "4.4.0"
-  resolved "https://registry.yarnpkg.com/@smartface/native/-/native-4.4.0.tgz#620b309ad66ebf0c7dff57fed1fc9eb87c8b6303"
-  integrity sha512-qKawjNvSiK2d0hkl/lkKk9ayXv6fOboto3EZcN3m8TwRnzW6hKQoWb/NbklbNEyClsH9244q8J6U8E8ZIIOKWA==
-  dependencies:
-    events "^3.3.0"
-
-"@smartface/router@^2.1.0":
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/@smartface/router/-/router-2.1.0.tgz#1ed3445a8954376c592f1757bc11af5be49152c5"
-  integrity sha512-gPp3GChoIULWlSp0v0mMQNfI6eE6UaDOWLGi9ud3/FCpJTgNUXpRAo1dOWaIF74iHuxC9l5CFpiyDvqZBUqqGA==
+"@smartface/router@^2.2.0":
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/@smartface/router/-/router-2.2.0.tgz#01690807cb050750f5ca9d715541b397c88b574d"
+  integrity sha512-P4J1GEqMINaj8iR/ImIadG7yM/puAp7LR2rEQPFTKMstuf1UgBb+d8UschlEojcGbro/CkluaL88QuRRHDeFOQ==
   dependencies:
     path-to-regexp "^2.4.0"
     resolve-pathname "^2.2.0"
@@ -8489,15 +8482,10 @@ typedarray@^0.0.6:
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
 
-typescript@4.5.4, typescript@^4.3.5:
-  version "4.5.4"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.5.4.tgz#a17d3a0263bf5c8723b9c52f43c5084edf13c2e8"
-  integrity sha512-VgYs2A2QIRuGphtzFV7aQJduJ2gyfTljngLzjpfW9FoYZF6xuw1W0vW9ghCKLfcWrCFxK81CSGRAvS1pn4fIUg==
-
-typescript@^4.5.2:
-  version "4.5.5"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.5.5.tgz#d8c953832d28924a9e3d37c73d729c846c5896f3"
-  integrity sha512-TCTIul70LyWe6IJWT8QSYeA54WQe8EjQFU4wY52Fasj5UKx88LNYKCgBEHcOMOrFF1rKGbD8v/xcNWVUq9SymA==
+typescript@^4.6.2:
+  version "4.6.2"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.6.2.tgz#fe12d2727b708f4eef40f51598b3398baa9611d4"
+  integrity sha512-HM/hFigTBHZhLXshn9sN37H085+hQGeJHJ/X7LpBWLID/fbc2acUMfU+lGD98X81sKP+pFa9f0DZmCwB9GnbAg==
 
 typical@^2.4.2, typical@^2.6.0, typical@^2.6.1:
   version "2.6.1"

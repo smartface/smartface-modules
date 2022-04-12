@@ -1,4 +1,4 @@
-import Page = require("@smartface/native/ui/page");
+import Page from "@smartface/native/ui/page";
 
 declare function onSafeAreaPaddingChange(onSafeAreaPaddingChange: () => any, paddings: { left: number, right: number, top: number, bottom: number}): void;
 

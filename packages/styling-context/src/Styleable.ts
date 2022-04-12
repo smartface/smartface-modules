@@ -1,6 +1,5 @@
-import NavigationController = require('@smartface/native/ui/navigationcontroller');
-import Page = require('@smartface/native/ui/page');
-import View = require('@smartface/native/ui/view');
+import NavigationController from '@smartface/native/ui/navigationcontroller';
+import View from '@smartface/native/ui/view';
 import { StyleableDispatch } from 'index';
 import { ComponentStyleContext } from './ComponentStyleContext';
 

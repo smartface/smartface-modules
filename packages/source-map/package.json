@@ -1,6 +1,6 @@
 {
   "name": "@smartface/source-map",
-  "version": "1.0.2",
+  "version": "5.0.0-alpha.0",
   "description": "Smartface Error Source-map. Used to trace the Typescript Errors",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -10,7 +10,7 @@
     "source-map": "0.6.1"
   },
   "devDependencies": {
-    "typescript": "4.5.4"
+    "typescript": "^4.6.2"
   },
   "publishConfig": {
     "access": "public"
@@ -20,5 +20,5 @@
     "watch": "tsc -w",
     "prepublish": "tsc"
   },
-  "gitHead": "b216dec6c5a29af55b4fbfd26baf1f530d034fd4"
+  "gitHead": "495d17e91d185b69376ac564cd372bc9911ec7cc"
 }
