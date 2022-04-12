@@ -1,5 +1,6 @@
 {
   "name": "@smartface/webviewbridge",
+  "version": "1.0.5",
   "version": "5.0.0-alpha.0",
   "author": "Berk Baski <baskiberk41@gmail.com>",
   "license": "MIT",
