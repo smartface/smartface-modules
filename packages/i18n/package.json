@@ -1,24 +1,24 @@
 {
 	"name": "@smartface/i18n",
-	"version": "5.0.0-alpha.0",
+	"version": "5.0.0-alpha.6",
 	"description": "Powerful internationalization module for Smartface based on i18next",
 	"main": "lib/index.js",
 	"author": "Alim Öncül",
 	"publishConfig": {
-	  "access": "public"
+		"access": "public"
 	},
 	"license": "MIT",
 	"scripts": {
-	  "build": "rm -R -f ./lib && tsc",
-	  "watch": "tsc -w"
+		"build": "rm -R -f ./lib && tsc",
+		"watch": "tsc -w"
 	},
 	"devDependencies": {
-	  "@types/node": "^15.0.3",
-	  "typescript": "^4.6.2"
+		"@types/node": "^15.0.3",
+		"typescript": "^4.6.2"
 	},
 	"dependencies": {
-	  "@smartface/native": "^4.3.6-beta.6",
-	  "i18next": "21.6.15"
+		"@smartface/native": "^4.3.6-beta.6",
+		"i18next": "21.6.15"
 	},
 	"gitHead": "495d17e91d185b69376ac564cd372bc9911ec7cc"
 }
