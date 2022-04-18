@@ -1,6 +1,6 @@
 {
   "name": "@smartface/mixins",
-  "version": "5.0.0-alpha.0",
+  "version": "1.1.5",
   "description": "Smartface Mixins",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -17,20 +17,19 @@
   "peerDependenciesMeta": {
     "@smartface/native": {
       "optional": true
-    },
-    "@smartface/router": {
-      "optional": true
     }
   },
   "peerDependencies": {
-    "@smartface/native": "^5.0.0-alpha.2",
+    "@smartface/native": "^4.3.4 || ^4.3.5-beta || ^4.3.5.alpha || ^4.3.6-beta || ^4.3.6.alpha",
     "@smartface/router": "^2.1.0"
   },
   "devDependencies": {
-    "typescript": "^4.6.2"
+    "@smartface/native": "^4.3.4 || ^4.3.5-beta || ^4.3.5.alpha || ^4.3.6-beta || ^4.3.6.alpha",
+    "@smartface/router": "^2.1.0",
+    "typescript": "4.5.4"
   },
   "dependencies": {
-    "@smartface/core": "^5.0.0-alpha.0"
+    "@smartface/core": "^1.0.0"
   },
-  "gitHead": "495d17e91d185b69376ac564cd372bc9911ec7cc"
+  "gitHead": "b216dec6c5a29af55b4fbfd26baf1f530d034fd4"
 }

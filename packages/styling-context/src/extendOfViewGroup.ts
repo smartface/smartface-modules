@@ -1,4 +1,4 @@
-import ViewGroup from "@smartface/native/ui/viewgroup";
+import ViewGroup = require("@smartface/native/ui/viewgroup");
 import { ConstructorOf } from "./ConstructorOf";
 
 
