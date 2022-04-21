@@ -3,19 +3,19 @@ import Font from "@smartface/native/ui/font";
 import Image from "@smartface/native/ui/image";
 import GifImage from "@smartface/native/ui/gifimage";
 import FlexLayout from "@smartface/native/ui/flexlayout";
-import { ImageViewFillType } from "@smartface/native/ui/imageview";
+import { ImageViewFillType } from "@smartface/native/ui/imageview/imageview";
 import TextAlignment from "@smartface/native/ui/shared/textalignment";
 import EllipsizeMode from "@smartface/native/ui/shared/ellipsizemode";
 import KeyboardType from "@smartface/native/ui/shared/keyboardtype";
-import { PageOrientation } from "@smartface/native/ui/page";
-import { MapViewType } from "@smartface/native/ui/mapview";
-import { GradientDirection } from "@smartface/native/ui/color";
-import { SearchViewStyle } from "@smartface/native/ui/searchview";
+import { PageOrientation } from "@smartface/native/ui/page/page";
+import { MapViewType } from "@smartface/native/ui/mapview/mapview";
+import { GradientDirection } from "@smartface/native/ui/color/color";
+import { SearchViewStyle } from "@smartface/native/ui/searchview/searchview";
 import { ActivityIndicatorViewStyle } from "@smartface/native/ui/activityindicator/activityindicator";
-import { StatusBarStyle } from "@smartface/native/application/statusbar";
-import { ShimmeringDirection } from "@smartface/native/ui/shimmerflexlayout";
-import { ScrollViewAlign } from "@smartface/native/ui/scrollview";
-import { ScrollDirection } from "@smartface/native/ui/layoutmanager";
+import { StatusBarStyle } from "@smartface/native/application/statusbar/statusbar";
+import { ShimmeringDirection } from "@smartface/native/ui/shimmerflexlayout/shimmerflexlayout";
+import { ScrollViewAlign } from "@smartface/native/ui/scrollview/scrollview";
+import { ScrollDirection } from "@smartface/native/ui/layoutmanager/layoutmanager";
 
 const HexColorValidationRegexp = /^#[0-9A-Fa-f]{6}$/gi;
 const ENUMS = {
