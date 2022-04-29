@@ -3,7 +3,7 @@ import Font from "@smartface/native/ui/font";
 import Image from "@smartface/native/ui/image";
 import GifImage from "@smartface/native/ui/gifimage";
 import FlexLayout from "@smartface/native/ui/flexlayout";
-import { ImageViewFillType } from "@smartface/native/ui/imageview/imageview";
+import { ImageFillType } from "@smartface/native/ui/imageview/imageview";
 import TextAlignment from "@smartface/native/ui/shared/textalignment";
 import EllipsizeMode from "@smartface/native/ui/shared/ellipsizemode";
 import KeyboardType from "@smartface/native/ui/shared/keyboardtype";
@@ -16,10 +16,9 @@ import { StatusBarStyle } from "@smartface/native/application/statusbar/statusba
 import { ShimmeringDirection } from "@smartface/native/ui/shimmerflexlayout/shimmerflexlayout";
 import { ScrollViewAlign } from "@smartface/native/ui/scrollview/scrollview";
 import { ScrollDirection } from "@smartface/native/ui/layoutmanager/layoutmanager";
-
 const HexColorValidationRegexp = /^#[0-9A-Fa-f]{6}$/gi;
 const ENUMS = {
-  imageFillType: ImageViewFillType,
+  imageFillType: ImageFillType,
   textAlignment: TextAlignment,
   keyboardType: KeyboardType,
   orientation: PageOrientation,
