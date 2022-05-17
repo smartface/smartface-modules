@@ -1,4 +1,4 @@
-import View from "@smartface/native/ui/view";
+import View = require("@smartface/native/ui/view");
 import createPageContext from "./pageContext";
 import { ThemeService } from "./ThemeService";
 import { StyleContextComponent } from ".";
@@ -6,13 +6,13 @@ import { StyleablePage } from "./StyleablePage";
 import addContextChild from "./action/addChild";
 import removeContextChild from "./action/removeChild";
 import removeContextChildren from "./action/removeChildren";
-import Page from "@smartface/native/ui/page";
-import { MergeCtor } from "./mixin";
+import Page = require("@smartface/native/ui/page");
+import { GetProps, MergeCtor } from "./mixin";
 import { instanceOfStyleContextComponentType } from "./instanceOfStyleContextComponentType";
 import type { ConstructorOf } from "./ConstructorOf";
 
 export function styleablePageMixin<
-  T extends typeof Page = typeof Page
+  T extends typeof Page
 >(Pg: T) {
   const StyleablePageClass = class extends (Pg as any) implements StyleablePage {
     dispatch?: StyleContextComponent["dispatch"];
@@ -149,5 +149,5 @@ export function styleablePageMixin<
     }
   }
 
-  return StyleablePageClass as unknown as MergeCtor<ConstructorOf<StyleablePage, ConstructorParameters<T>>, T>;
+  return StyleablePageClass as unknown as MergeCtor<ConstructorOf<StyleablePage, GetProps<T>>, T>;
 }

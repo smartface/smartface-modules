@@ -49,7 +49,7 @@
         "jsdoc-babel": "^0.3.0",
         "jsdoc-to-markdown": "^3.0.2",
         "minimist": "^1.2.0",
-        "typescript": "^4.6.2"
+        "typescript": "4.5.4"
     },
     "peerDependenciesMeta": {
         "@smartface/native": {
@@ -57,7 +57,7 @@
         }
     },
     "peerDependencies": {
-        "@smartface/native": "^5.0.0-alpha.2"
+        "@smartface/native": "^4.3.4 || ^4.3.5-beta || ^4.3.5.alpha || ^4.3.6-beta || ^4.3.6.alpha"
     },
     "dependencies": {
         "@smartface/contx": "^4.2.0",
@@ -72,5 +72,5 @@
             "config": "./.cz-config.js"
         }
     },
-    "gitHead": "495d17e91d185b69376ac564cd372bc9911ec7cc"
+    "gitHead": "b216dec6c5a29af55b4fbfd26baf1f530d034fd4"
 }

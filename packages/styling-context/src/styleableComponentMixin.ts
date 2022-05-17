@@ -1,4 +1,4 @@
-import View from "@smartface/native/ui/view";
+import View = require("@smartface/native/ui/view");
 import { Styleable } from "./Styleable";
 import addContextChild from "./action/addChild";
 import removeContextChild from "./action/removeChild";
@@ -25,13 +25,25 @@ export function styleableContainerComponentMixin<T extends ConstructorOf<any>>(V
   const Component =  class extends ViewClass implements iStyleableContainer {
     constructor(...args: any[]){
       super(...args);
+      this.superaddChild = this.addChild;
+      this.addChild = Component.prototype.addChild;
     }
+    // addChildByName(child: View<any>, name?: string, classNames?: string, userProps?: { [key: string]: any }, defaultClassNames?: string): void {
+    //   if (this.layout) {
+    //     this.layout.addChild(child);
+    //   } else {
+    //     this.addChild(child);
+    //   }
+    //   if (name) {
+    //     this.addStyleableChild(child, name, classNames, userProps, defaultClassNames);
+    //   }
+    // }
 
     addChild(child: View<any>, name?: string, classNames?: string, userProps?: { [key: string]: any }, defaultClassNames?: string): void {
       if (this.layout) {
         this.layout.addChild(child);
       } else {
-        super.addChild(child);
+        this.superaddChild(child);
       }
       if (name) {
         this.addStyleableChild(child, name, classNames, userProps, defaultClassNames);

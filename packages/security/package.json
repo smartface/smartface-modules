@@ -21,7 +21,6 @@
   "license": "MIT",
   "devDependencies": {
     "prettier": "^1.19.1",
-    "typescript": "^4.6.2"
-  },
-  "gitHead": "495d17e91d185b69376ac564cd372bc9911ec7cc"
+    "typescript": "^4.3.5"
+  }
 }

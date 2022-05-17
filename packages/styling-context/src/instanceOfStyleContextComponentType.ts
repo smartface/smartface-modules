@@ -1,4 +1,4 @@
-import View from "@smartface/native/ui/view";
+import View = require("@smartface/native/ui/view");
 import { StyleContextComponentType } from ".";
 
 export function instanceOfStyleContextComponentType(view: any): view is StyleContextComponentType<View<any>> {

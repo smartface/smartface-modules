@@ -1,10 +1,13 @@
-import Page from "@smartface/native/ui/page";
-import View from "@smartface/native/ui/view";
+import StatusBar = require("@smartface/native/application/statusbar");
+import HeaderBar = require("@smartface/native/ui/headerbar");
+import Page = require("@smartface/native/ui/page");
+import View = require("@smartface/native/ui/view");
+import { StyleContextComponentType } from "index";
 
 export interface ContextPage extends Page {
-  new(name: string, params: Page): ContextPage;
+  new(name: string, params: ConstructorParameters<typeof Page>): ContextPage;
   addStyleableChild(
-    child: View,
+    child: View<any>,
     name?: string,
     classNames?: string,
     userProps?: { [key: string]: any },
@@ -12,6 +15,7 @@ export interface ContextPage extends Page {
   ): void;
   // headerBar: StyleContextComponentType<HeaderBar>
   // statusBar: StyleContextComponentType<StatusBar>
+  
 }
 
 export interface PageClass<T> {
