@@ -1,53 +1,47 @@
 import Color from "@smartface/native/ui/color";
 import Font from "@smartface/native/ui/font";
 import Image from "@smartface/native/ui/image";
-
+import GifImage from "@smartface/native/ui/gifimage";
+import FlexLayout from "@smartface/native/ui/flexlayout";
+import { ImageFillType } from "@smartface/native/ui/imageview/imageview";
+import TextAlignment from "@smartface/native/ui/shared/textalignment";
+import EllipsizeMode from "@smartface/native/ui/shared/ellipsizemode";
+import KeyboardType from "@smartface/native/ui/shared/keyboardtype";
+import { PageOrientation } from "@smartface/native/ui/page/page";
+import { MapViewType } from "@smartface/native/ui/mapview/mapview";
+import { GradientDirection } from "@smartface/native/ui/color/color";
+import { SearchViewStyle } from "@smartface/native/ui/searchview/searchview";
+import { ActivityIndicatorViewStyle } from "@smartface/native/ui/activityindicator/activityindicator";
+import { StatusBarStyle } from "@smartface/native/application/statusbar/statusbar";
+import { ShimmeringDirection } from "@smartface/native/ui/shimmerflexlayout/shimmerflexlayout";
+import { ScrollViewAlign } from "@smartface/native/ui/scrollview/scrollview";
+import { ScrollDirection } from "@smartface/native/ui/layoutmanager/layoutmanager";
 const HexColorValidationRegexp = /^#[0-9A-Fa-f]{6}$/gi;
 const ENUMS = {
-    imageFillType: "@smartface/native/ui/imagefilltype",
-    textAlignment: "@smartface/native/ui/textalignment",
-    keyboardType: "@smartface/native/ui/keyboardtype",
-    orientation: "@smartface/native/ui/page",
-    type: "@smartface/native/ui/mapview",
-    gradientOrientation: "@smartface/native/ui/color",
-    searchViewStyle: "@smartface/native/ui/searchview",
-    activityIndicatorViewStyle:
-        "@smartface/native/ui/activityindicator/ios/activityindicatorviewstyle",
-    alignSelf: "@smartface/native/ui/flexlayout",
-    alignContent: "@smartface/native/ui/flexlayout",
-    alignItems: "@smartface/native/ui/flexlayout",
-    direction: "@smartface/native/ui/flexlayout",
-    ellipsizeMode: "@smartface/native/ui/ellipsizemode",
-    flexDirection: "@smartface/native/ui/flexlayout",
-    flexWrap: "@smartface/native/ui/flexlayout",
-    justifyContent: "@smartface/native/ui/flexlayout",
-    positionType: "@smartface/native/ui/flexlayout",
-    overflow: "@smartface/native/ui/flexlayout",
-    style: "@smartface/native/ui/statusbarstyle",
-    shimmeringDirection: "@smartface/native/ui/shimmerflexlayout",
-    ios: {
-        style: "@smartface/native/ui/statusbarstyle"
-    },
-    align: "@smartface/native/ui/scrollview",
-    scrollDirection: "@smartface/native/ui/layoutmanager"
-};
-const ENUMS_META_FIELD = {
-    align: "Align",
-    orientation: "Orientation",
-    type: "Type",
-    searchViewStyle: "iOS",
-    alignSelf: "AlignSelf",
-    alignContent: "AlignContent",
-    alignItems: "AlignItems",
-    direction: "Direction",
-    flexDirection: "FlexDirection",
-    flexWrap: "FlexWrap",
-    justifyContent: "JustifyContent",
-    positionType: "PositionType",
-    overflow: "OverFlow",
-    scrollDirection: "ScrollDirection",
-    shimmeringDirection: "ShimmeringDirection",
-    gradientOrientation: "GradientOrientation"
+  imageFillType: ImageFillType,
+  textAlignment: TextAlignment,
+  keyboardType: KeyboardType,
+  orientation: PageOrientation,
+  type: MapViewType,
+  gradientOrientation: GradientDirection,
+  searchViewStyle: SearchViewStyle,
+  activityIndicatorViewStyle: ActivityIndicatorViewStyle,
+  alignSelf: FlexLayout.AlignSelf,
+  alignContent: FlexLayout.AlignContent,
+  alignItems: FlexLayout.AlignItems,
+  direction: FlexLayout.Direction,
+  ellipsizeMode: EllipsizeMode,
+  flexDirection: FlexLayout.FlexDirection,
+  flexWrap: FlexLayout.FlexWrap,
+  justifyContent: FlexLayout.JustifyContent,
+  positionType: FlexLayout.PositionType,
+  style: StatusBarStyle,
+  shimmeringDirection: ShimmeringDirection,
+  ios: {
+    style: StatusBarStyle
+  },
+  align: ScrollViewAlign,
+  scrollDirection: ScrollDirection
 };
 const componentObjectProps = {
     android: {},
