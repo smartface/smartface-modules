@@ -20,5 +20,6 @@
   "dependencies": {
     "@types/events": "^3.0.0",
     "events": "^3.3.0"
-  }
+  },
+  "gitHead": "5bafd2b3260813b08c9bc6f8d577ba829b25fbc3"
 }
