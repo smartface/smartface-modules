@@ -1,6 +1,6 @@
 {
   "name": "@smartface/source-map",
-  "version": "5.0.1-alpha.0",
+  "version": "5.0.1-alpha.1",
   "description": "Smartface Error Source-map. Used to trace the Typescript Errors",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
