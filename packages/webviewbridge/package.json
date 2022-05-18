@@ -1,6 +1,6 @@
 {
   "name": "@smartface/webviewbridge",
-  "version": "5.0.0",
+  "version": "5.0.1-alpha.0",
   "author": "Berk Baski <baskiberk41@gmail.com>",
   "license": "MIT",
   "main": "lib/index.js",
