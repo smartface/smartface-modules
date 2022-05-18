@@ -3,11 +3,36 @@ import System from '@smartface/native/device/system';
 import Color from '@smartface/native/ui/color';
 import HeaderBarItem from '@smartface/native/ui/headerbaritem';
 import Image from '@smartface/native/ui/image';
+import { IImage } from '@smartface/native/ui/image/image';
 import Page from '@smartface/native/ui/page';
 import { NativeStackRouter, Router } from '@smartface/router';
 
-const closeButtonImage: Image = Image.createFromFile('images://close_icon.png') as Image;
-const backButtonImage: Image = Image.createFromFile('images://arrow_back.png') as Image;
+const closeButtonImage = Image.createFromFile('images://close_icon.png') || undefined;
+const backButtonImage = Image.createFromFile('images://arrow_back.png') || undefined;
+
+type DismissOptions = {
+  /**
+   * Default image values are described in the function description.
+   */
+  image?: IImage;
+  /**
+   * Position of the headerbar icon.
+   * Assigning left will invoke setLeftItem, assigning right will invoke setItems method.
+   * @default "left"
+   */
+  position?: 'left' | 'right';
+  /**
+   * Tint color of the headerbar icon. If given, the selected tint will be applied.
+   * If not, it will take whatever headerbar value is set on theme.f
+   */
+  color?: Color;
+  /**
+   * If needed, you can also assign a text instead of a button.
+   * Assigning this will override image variable, so only use this if you don't want to set an image.
+   */
+  text?: string
+};
+
 interface iDismissBackbutton {
   initDismissButton(router: Router, options?: DismissOptions): void;
   initBackButton(router: Router, options?: DismissOptions): void;
@@ -73,7 +98,7 @@ export function withDismissAndBackButton<T extends new (...params: any[]) => Pag
         closeButtonHbi.title = options.text;
       }
       else {
-        closeButtonHbi.image = options?.image || closeButtonImage;
+        closeButtonHbi.image = options?.image || closeButtonImage || null;
       }
       if(options?.color) {
         closeButtonHbi.color = options.color;
@@ -111,7 +136,7 @@ export function withDismissAndBackButton<T extends new (...params: any[]) => Pag
         hbi.title = options.text;
       }
       else {
-        hbi.image = options?.image || closeButtonImage;
+        hbi.image = options?.image || closeButtonImage || null;
       }
       if (options?.color) {
         hbi.color = options.color;
@@ -138,7 +163,7 @@ export function withDismissAndBackButton<T extends new (...params: any[]) => Pag
         hbi.title = options.text;
       }
       else {
-        hbi.image = options?.image || backButtonImage;
+        hbi.image = options?.image || backButtonImage || null;
       }
 
       if (options?.color) {
@@ -175,7 +200,7 @@ export function withDismissAndBackButton<T extends new (...params: any[]) => Pag
         hbi.title = options.text;
       }
       else {
-        hbi.image = options?.image || backButtonImage;
+        hbi.image = options?.image || backButtonImage || null;
       }
       if(options?.color) {
         hbi.color = options.color;
@@ -193,26 +218,3 @@ export function withDismissAndBackButton<T extends new (...params: any[]) => Pag
   };
   return klass as unknown as MergeCtor<ConstructorOf<iDismissBackbutton>, typeof PageClass>;
 }
-
-type DismissOptions = {
-  /**
-   * Default image values are described in the function description.
-   */
-  image?: Image;
-  /**
-   * Position of the headerbar icon.
-   * Assigning left will invoke setLeftItem, assigning right will invoke setItems method.
-   * @default "left"
-   */
-  position?: 'left' | 'right';
-  /**
-   * Tint color of the headerbar icon. If given, the selected tint will be applied.
-   * If not, it will take whatever headerbar value is set on theme.f
-   */
-  color?: Color;
-  /**
-   * If needed, you can also assign a text instead of a button.
-   * Assigning this will override image variable, so only use this if you don't want to set an image.
-   */
-  text?: string
-};
