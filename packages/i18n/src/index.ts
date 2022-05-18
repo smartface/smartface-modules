@@ -15,14 +15,14 @@ export class i18n {
     i18n.instance = i18next.createInstance(props);
     i18n.instance.init();
   }
-  static onChange(callback: (...args: any[]) => void) {
-    return i18n.emitter.on("change", callback);
+  static on(event: "change", callback: (locale: string) => void) {
+    return i18n.emitter.on(event, callback);
   }
   static changeLanguage(locale: string, errorCallback: (error: any) => void = () => {}) {
     const localeExists = Object.keys(i18n.languageFiles).find(lang => lang === locale);
     if (localeExists) {
       i18n.instance.changeLanguage(locale, errorCallback).then(() => {
-        i18n.emitter.emit("change");
+        i18n.emitter.emit("change", locale);
       });
     } else {
       errorCallback("i18nError: Locale doesn't exists | " + locale);
