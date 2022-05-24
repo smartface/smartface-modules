@@ -1,6 +1,6 @@
 {
   "name": "@smartface/core",
-  "version": "5.0.1-alpha.1",
+  "version": "5.0.1",
   "description": "Smartface Core",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
