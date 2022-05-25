@@ -22,7 +22,7 @@ export interface iStyleableContainer extends Styleable {
 }
 
 export function styleableContainerComponentMixin<T extends ConstructorOf<any>>(ViewClass: T) {
-  const Component =  class extends ViewClass implements iStyleableContainer {
+  const Component = class extends ViewClass implements iStyleableContainer {
     constructor(...args: any[]){
       super(...args);
     }
@@ -57,13 +57,13 @@ export function styleableContainerComponentMixin<T extends ConstructorOf<any>>(V
     dispatch?: StyleableDispatch;
   };
 
-  return Component as unknown as MergeCtor<ConstructorOf<iStyleableContainer>, typeof ViewClass>;
+  return Component
 }
 
 export function styleableComponentMixin<
   T extends ConstructorOf<any> = ConstructorOf<any>
 >(ViewClass: T) {
-  return class extends (ViewClass as unknown as T) implements Styleable {
+  return class extends ViewClass implements Styleable {
     dispatch?: StyleableDispatch;
-  } as unknown as MergeCtor<ConstructorOf<Styleable>, typeof ViewClass>;
+  };
 }
