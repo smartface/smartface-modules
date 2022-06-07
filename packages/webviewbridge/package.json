@@ -1,7 +1,7 @@
 {
   "name": "@smartface/webviewbridge",
   "version": "5.0.3",
-  "author": "Berk Baski <baskiberk41@gmail.com>",
+  "author": "Smartface Inc. <info@smartface.io>",
   "license": "MIT",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -14,12 +14,15 @@
     "access": "public"
   },
   "devDependencies": {
-    "@smartface/native": "^5.0.0-alpha.2",
-    "typescript": "^4.6.2"
+    "@smartface/native": "latest",
+    "typescript": "^4.6.2",
+    "@types/events": "^3.0.0"
   },
   "dependencies": {
-    "@types/events": "^3.0.0",
     "events": "^3.3.0"
+  },
+  "peerDependencies": {
+    "@smartface/native": "alpha|beta|latest"
   },
   "gitHead": "495d17e91d185b69376ac564cd372bc9911ec7cc"
 }
