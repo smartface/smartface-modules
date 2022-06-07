@@ -1,6 +1,6 @@
 {
 	"name": "@smartface/i18n",
-	"version": "5.0.3",
+	"version": "5.0.3-beta.0",
 	"description": "Powerful internationalization module for Smartface based on i18next",
 	"main": "lib/index.js",
 	"author": "Alim Öncül",
@@ -14,9 +14,9 @@
 		"prepublish": "npm run build"
 	},
 	"devDependencies": {
+		"@smartface/native": "latest",
 		"@types/node": "^15.0.3",
-		"typescript": "^4.6.2",
-		"@smartface/native": "latest"
+		"typescript": "^4.6.2"
 	},
 	"dependencies": {
 		"i18next": "21.6.15"
