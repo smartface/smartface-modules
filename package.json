@@ -11,5 +11,10 @@
   "license": "MIT",
   "dependencies": {
     "lerna": "^4.0.0"
+  },
+  "devDependencies": {
+    "@smartface/native": "latest",
+    "@smartface/router": "^2.2.0",
+    "@smartface/core": "^5.0.3"
   }
 }
