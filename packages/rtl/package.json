@@ -1,0 +1,43 @@
+{
+  "name": "rtl",
+  "version": "5.0.3-beta.2",
+  "description": "Smartface RTL Supported modules",
+  "keywords": [
+    "smartface",
+    "rtl",
+    "arabic",
+    "cross-platform",
+    "hebrew",
+    "native"
+  ],
+  "author": "Furkan Arabacı <furkan.arabaci@smartface.io>",
+  "homepage": "https://smartface.io",
+  "license": "MIT",
+  "types": "lib/index.d.ts",
+  "main": "lib/index.js",
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/smartface/smartface-modules.git"
+  },
+  "peerDependencies": {
+    "@smartface/native": "alpha|beta|latest"
+  },
+  "dependencies": {
+    "source-map": "0.6.1"
+  },
+  "devDependencies": {
+    "@smartface/native": "alpha",
+    "typescript": "^4.6.2"
+  },
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc -w",
+    "prepublish": "tsc"
+  },
+  "bugs": {
+    "url": "https://github.com/smartface/smartface-modules/issues"
+  }
+}
