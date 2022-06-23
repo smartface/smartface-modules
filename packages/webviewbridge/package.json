@@ -14,12 +14,23 @@
     "access": "public"
   },
   "devDependencies": {
-    "@smartface/native": "^5.0.0-alpha.2",
+    "@smartface/native": "^5.0.0",
     "typescript": "^4.6.2"
   },
   "dependencies": {
     "@types/events": "^3.0.0",
     "events": "^3.3.0"
+  },
+  "peerDependenciesMeta": {
+    "@smartface/native": {
+      "optional": true
+    },
+    "@smartface/router": {
+      "optional": true
+    }
+  },
+  "peerDependencies": {
+    "@smartface/native": "^5.0.0"
   },
   "gitHead": "495d17e91d185b69376ac564cd372bc9911ec7cc"
 }

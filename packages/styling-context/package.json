@@ -57,7 +57,7 @@
         }
     },
     "peerDependencies": {
-        "@smartface/native": "^5.0.0-alpha.2"
+        "@smartface/native": "^5.0.0"
     },
     "dependencies": {
         "@smartface/contx": "^4.2.0",

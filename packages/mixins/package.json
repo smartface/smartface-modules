@@ -23,7 +23,7 @@
     }
   },
   "peerDependencies": {
-    "@smartface/native": "^5.0.0-alpha.2",
+    "@smartface/native": "^5.0.0",
     "@smartface/router": "^2.1.0"
   },
   "devDependencies": {
