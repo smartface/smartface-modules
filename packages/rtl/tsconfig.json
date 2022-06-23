@@ -1,0 +1,24 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "module": "CommonJS",
+    "resolveJsonModule": true,
+    "isolatedModules": false,
+    "lib": ["ES2015", "ES2017"],
+    "allowJs": true,
+    "checkJs": false,
+    "skipLibCheck": true,
+    "sourceMap": true,
+    "noEmit": false,
+    "target": "ES5",
+    "outDir": "lib",
+    "declaration": true,
+    "moduleResolution": "Node",
+    "baseUrl": "src",
+    "rootDir": "src",
+    "strict": true,
+    "esModuleInterop": true
+  },
+  "include": ["src", "src/**/*.d.ts", "../../node_modules/@smartface/native/.types/index.d.ts"],
+  "exclude": ["node_modules", "lib", "test"]
+}

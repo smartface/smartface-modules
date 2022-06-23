@@ -1,6 +1,6 @@
 {
   "name": "@smartface/core",
-  "version": "5.0.3",
+  "version": "5.0.3-beta.2",
   "description": "Smartface Core",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -14,7 +14,8 @@
   },
   "scripts": {
     "build": "tsc",
-    "watch": "tsc -w"
+    "watch": "tsc -w",
+    "prepublish": "tsc"
   },
   "gitHead": "495d17e91d185b69376ac564cd372bc9911ec7cc"
 }

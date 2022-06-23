@@ -46,7 +46,10 @@ export function pageContextHooks(hook) {
 									oldStyles[key] || {},
 									newStyles[key] || {}
 								);
-								diffReducer();
+								const res = diffReducer();
+								if (Object.keys(res).length) {
+									acc[key] = res;
+								}
 							} else if (key == "flexProps" && newStyles[key]) {
 								Object.keys(newStyles[key]).forEach(function (name) {
 									if (
