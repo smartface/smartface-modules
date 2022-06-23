@@ -917,6 +917,11 @@
     "@smartface/styler" "^2.0.0"
     filtrex "^0.5.4"
 
+"@smartface/core@^5.0.3":
+  version "5.0.3"
+  resolved "https://registry.yarnpkg.com/@smartface/core/-/core-5.0.3.tgz#8b63e5fb4551c147351a53dada6a8420cc3fc36d"
+  integrity sha512-obOGFpJeO4CcK/rIaZpw82/DaT2FHreVqeW61S8mKjPHuTsZfgkTnwxU8r0nQDgWPes82ZrkMAMqjwNkW7vzTQ==
+
 "@smartface/html-to-text@^1.0.0":
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/@smartface/html-to-text/-/html-to-text-1.2.0.tgz#463cf8c60e30af0db96c9e136bcabbc7a37d764d"
@@ -924,18 +929,18 @@
   dependencies:
     html-parse-stringify "1.0.2"
 
-"@smartface/native@alpha":
-  version "5.0.3-alpha.10"
-  resolved "https://registry.yarnpkg.com/@smartface/native/-/native-5.0.3-alpha.10.tgz#4d623dd9b4e0092c9b245b10ae94baddd86d032e"
-  integrity sha512-N1cCS3dnn3/7nAbq05Rxe3DHNHijyDvL4VfoGb01ac8lWy82AB69Ns1E0lQ0S8MWMzDNvI47iJxz/Oq1g5aalw==
+"@smartface/native@^5.0.0", "@smartface/native@latest":
+  version "5.0.2"
+  resolved "https://registry.yarnpkg.com/@smartface/native/-/native-5.0.2.tgz#f49a434fa0f7ff21777799edc4506e5ccd5136d9"
+  integrity sha512-eg8sa1QKMH6rQiEZ/H0NyjMvE7hlWD7TbTIBmIkJBxmVNqgV8m4M34JBnQevLTQfWDi0ETAE85aObUI6D3TZ/A==
   dependencies:
     abort-controller "^3.0.0"
     events "^3.3.0"
 
-"@smartface/native@latest":
-  version "5.0.2"
-  resolved "https://registry.yarnpkg.com/@smartface/native/-/native-5.0.2.tgz#f49a434fa0f7ff21777799edc4506e5ccd5136d9"
-  integrity sha512-eg8sa1QKMH6rQiEZ/H0NyjMvE7hlWD7TbTIBmIkJBxmVNqgV8m4M34JBnQevLTQfWDi0ETAE85aObUI6D3TZ/A==
+"@smartface/native@alpha":
+  version "5.0.3-alpha.10"
+  resolved "https://registry.yarnpkg.com/@smartface/native/-/native-5.0.3-alpha.10.tgz#4d623dd9b4e0092c9b245b10ae94baddd86d032e"
+  integrity sha512-N1cCS3dnn3/7nAbq05Rxe3DHNHijyDvL4VfoGb01ac8lWy82AB69Ns1E0lQ0S8MWMzDNvI47iJxz/Oq1g5aalw==
   dependencies:
     abort-controller "^3.0.0"
     events "^3.3.0"
@@ -957,11 +962,6 @@
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/@tootallnate/once/-/once-1.1.2.tgz#ccb91445360179a04e7fe6aff78c00ffc1eeaf82"
   integrity sha512-RbzJvlNzmRq5c3O09UipeuXno4tA1FE6ikOjxZK0tuxVv3412l64l5t1W5pj4+rJq9vpkm/kwiR07aZXnsKPxw==
-
-"@types/events@^3.0.0":
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/@types/events/-/events-3.0.0.tgz#2862f3f58a9a7f7c3e78d79f130dd4d71c25c2a7"
-  integrity sha512-EaObqwIvayI5a8dCzhFrjKzVwKLxjoG9T6Ppd5CEo07LRKfQ8Yokw54r5+Wq7FaBQ+yXRvQAYPrHwya1/UFt9g==
 
 "@types/linkify-it@*":
   version "3.0.2"
