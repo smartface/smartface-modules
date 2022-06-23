@@ -1,6 +1,6 @@
 {
   "name": "@smartface/mixins",
-  "version": "5.0.3-beta.2",
+  "version": "5.0.4-beta.0",
   "description": "Smartface Mixins",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -24,9 +24,9 @@
     "@smartface/router": "^2.1.0"
   },
   "devDependencies": {
+    "@smartface/native": "^5.0.0",
     "@smartface/router": "^2.2.0",
-    "typescript": "^4.6.2",
-    "@smartface/native": "^5.0.0"
+    "typescript": "^4.6.2"
   },
   "dependencies": {
     "@smartface/core": "^5.0.3"
