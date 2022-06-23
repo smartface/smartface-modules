@@ -284,7 +284,7 @@ export default class WebViewBridge extends EventEmitter implements IBridgeConstr
   }
 
   private initWebView() {
-    this.webView.onChangedURL = (event) => {
+    this.webView.onChangedURL = event => {
       if (event.url.startsWith(this.scheme + "://")) {
         let eventObject: { event: any; data?: any } = { event: null };
         try {
@@ -301,12 +301,12 @@ export default class WebViewBridge extends EventEmitter implements IBridgeConstr
         return !!eventArgs.continue;
       }
     };
-    this.webView.onShow = (event) => {
+    this.webView.onShow = event => {
       const code = Math.random();
       this.once("window.onload", (params: any) => {
         if (code === params.code) {
           this.isReady = true;
-          this.readyWaiting.forEach((item) => {
+          this.readyWaiting.forEach(item => {
             item();
           });
           this.readyWaiting.length = 0;
@@ -368,7 +368,7 @@ export default class WebViewBridge extends EventEmitter implements IBridgeConstr
       scriptNames = Array.prototype.slice.call(arguments);
     }
 
-    scriptNames = scriptNames.filter((item) => {
+    scriptNames = scriptNames.filter(item => {
       return this.loadedScriptNames.indexOf(item) === -1;
     });
     return new Promise((resolve, reject) => {
@@ -425,7 +425,7 @@ export default class WebViewBridge extends EventEmitter implements IBridgeConstr
     if (!this.parseResponses) javascript = `(function(){\n${javascript}\n})();null;`;
     if (onReceive) {
       let originalReceiveFunction = onReceive;
-      onReceive = (result) => {
+      onReceive = result => {
         if (System.OS === System.OSType.ANDROID && result && this.parseResponses) {
           try {
             result = JSON.parse(result);
@@ -502,7 +502,7 @@ export default class WebViewBridge extends EventEmitter implements IBridgeConstr
   private parseCookie(cookie: string) {
     return cookie
       .split(";")
-      .map((comp) => `document.cookie= '${comp}';`)
+      .map(comp => `document.cookie= '${comp}';`)
       .join(";");
   }
   private insertScript(scheme: any, code: number) {
