@@ -78,8 +78,6 @@ export function styleablePageMixin<
         type: "forceComponentUpdate",
         name: "statusbar",
       });
-
-      this.layout.applyLayout();
     };
 
     onOrientationChange({orientation}:{orientation: any}) {
@@ -87,14 +85,12 @@ export function styleablePageMixin<
         this.dispatch({
           type: "orientationStarted",
         });
-      this.layout.applyLayout();
       // @ts-ignore
       setTimeout(() => {
         this.dispatch &&
           this.dispatch({
             type: "orientationEnded",
           });
-        this.layout.applyLayout();
       }, 1);
     };
 
@@ -143,8 +139,6 @@ export function styleablePageMixin<
           type: "updatePageSafeArea",
           safeArea: style,
         });
-
-        this.layout.applyLayout();
       }
     }
   }
