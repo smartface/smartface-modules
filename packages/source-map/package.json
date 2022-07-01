@@ -20,5 +20,5 @@
     "watch": "tsc -w",
     "prepublish": "tsc"
   },
-  "gitHead": "495d17e91d185b69376ac564cd372bc9911ec7cc"
+  "gitHead": "142387667e75905100c5374856971f46fdbaca99"
 }

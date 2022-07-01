@@ -22,13 +22,13 @@ function parseErrorStackIOS(lines: string[]): (null | ErrorStackLine)[] {
 
   return parsed.map(parsedLine => {
     if (parsedLine) {
-      const res = parsedLine.filter(res => !!res);
+      const res = parsedLine.filter((res: any) => !!res);
 
       const stackLine: ErrorStackLine = {
-        path: null,
-        line: null,
-        column: null,
-        callee: null
+        path: "",
+        line: 0,
+        column: 0,
+        callee: ""
       };
       stackLine.path = res.length === 5 ? res[2] : res[1];
       stackLine.line = parseInt(res.length === 5 ? res[3] : res[2]);
@@ -46,13 +46,13 @@ function parseErrorStackAndroid(lines: string[]): (null | ErrorStackLine)[] {
 
   return parsed.map(parsedLine => {
     if (parsedLine) {
-      const res = parsedLine.filter(res => !!res);
+      const res = parsedLine.filter((res: any) => !!res);
 
       const stackLine: ErrorStackLine = {
-        path: null,
-        line: null,
-        column: null,
-        callee: null
+        path: "",
+        line: 0,
+        column: 0,
+        callee: ""
       };
       stackLine.path = res[2];
       stackLine.line = parseInt(res[3]);
@@ -69,7 +69,7 @@ export function errorStackBySourceMap(e: Error): Error {
   const lines = e.stack.split("\n");
 
   const scriptsRoot = System.OS === System.OSType.ANDROID ? `${Path.android.storages.internal}/Android/data/${Application.android.packageName}/cache/assets/` : `${Path.DataDirectory}/scripts/`;
-  let parsedStack: string[];
+  let parsedStack: string[] = [];
   try {
     parsedStack = (System.OS === System.OSType.IOS ? parseErrorStackIOS : parseErrorStackAndroid)(lines).map((stackLine, index) => {
       if (stackLine) {
@@ -78,8 +78,8 @@ export function errorStackBySourceMap(e: Error): Error {
           path: mapFilePath
         });
 
-        if (mapFile.exists) {
-          const mapData = mapFile.openStream(FileStream.StreamType.READ, FileStream.ContentMode.BINARY).readToEnd() as string;
+        if (mapFile?.exists) {
+          const mapData = mapFile.openStream(FileStream.StreamType.READ, FileStream.ContentMode.BINARY)?.readToEnd() as string;
           var smc = new sourceMap.SourceMapConsumer(JSON.parse(mapData));
           const originalPosition: SourcePosition = smc.originalPositionFor({
             line: stackLine.line,
@@ -95,7 +95,7 @@ export function errorStackBySourceMap(e: Error): Error {
       return lines[index];
     });
   } catch (e) {
-    return e;
+    return e as any;
   } finally {
     return {
       ...e,
