@@ -41,7 +41,7 @@ function parseErrorStackIOS(lines: string[]): (null | ErrorStackLine)[] {
 }
 
 function parseErrorStackAndroid(lines: string[]): (null | ErrorStackLine)[] {
-  const lineRegex = /at (?:(.+)\s+\()?(?:(.+?):(\d+)(?::(\d+))?|([^)]+))\)?/;
+  const lineRegex = /at (?:(.+)\s+\()file:\/\/?(?:(.+?):(\d+)(?::(\d+))?|([^)]+))\)?/;
   let parsed: any[] = lines.map(line => lineRegex.exec(line));
 
   return parsed.map(parsedLine => {
