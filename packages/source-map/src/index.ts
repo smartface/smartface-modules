@@ -17,7 +17,7 @@ type ErrorStackLine = {
 };
 
 function parseErrorStackIOS(lines: string[]): (null | ErrorStackLine)[] {
-  const lineRegex = /^(?:(.+)(?:\@(.*)\:(\d+)(?::(\d+)))|(?:(.*)\:(\d+)(?::(\d+))))/;
+  const lineRegex = /^(?:(.*)\:(\d+)(?::(\d+)))/;
   let parsed: any[] = lines.map(line => lineRegex.exec(line));
 
   return parsed.map(parsedLine => {
