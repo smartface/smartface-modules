@@ -17,7 +17,9 @@ type ErrorStackLine = {
 };
 
 function parseErrorStackIOS(lines: string[]): (null | ErrorStackLine)[] {
-  const lineRegex = /^(?:(.+)(?:\@(.*)\:(\d+)(?::(\d+)))|(?:(.*)\:(\d+)(?::(\d+))))/;
+  // const lineRegex = /^(?:(.+)(?:\@(.*)\:(\d+)(?::(\d+)))|(?:(.*)\:(\d+)(?::(\d+))))/;
+  const lineRegex = /^(?:(.*)\:(\d+)(?::(\d+)))/;
+
   let parsed: any[] = lines.map(line => lineRegex.exec(line));
 
   return parsed.map(parsedLine => {
@@ -30,7 +32,10 @@ function parseErrorStackIOS(lines: string[]): (null | ErrorStackLine)[] {
         column: 0,
         callee: ""
       };
-      stackLine.path = res.length === 5 ? res[2] : res[1];
+      let stackLinePath = res.length === 5 ? res[2] : res[1];
+      stackLinePath = stackLinePath.replace(/[A-Za-z]+\@/, "@");
+      stackLinePath = stackLinePath.replace("@", "");
+      stackLine.path = stackLinePath;
       stackLine.line = parseInt(res.length === 5 ? res[3] : res[2]);
       stackLine.column = parseInt(res.length === 5 ? res[4] : res[3]);
       stackLine.callee = res[0];
