@@ -59,8 +59,11 @@ export function styleablePageMixin<
         !this.headerBar.__isUpdated) {
         this.headerBar.__isUpdated = true;
         this.headerBar.dispatch({
-            type: "updateComponent",
-            component: this.parentController.headerBar
+          type: "updateComponent",
+          component: this.parentController.headerBar
+        });
+        this.headerBar.dispatch({
+          type: "forceComponentUpdate",
         });
       }
     }
@@ -73,10 +76,6 @@ export function styleablePageMixin<
       this.updateHeaderBar();
       this.dispatch?.({
         type: "invalidate",
-      });
-      this.dispatch?.({
-        type: "forceComponentUpdate",
-        name: "statusbar",
       });
     };
 
