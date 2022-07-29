@@ -62,10 +62,10 @@ export function styleablePageMixin<
           type: "updateComponent",
           component: this.parentController.headerBar
         });
-        this.headerBar.dispatch({
-          type: "forceComponentUpdate",
-        });
       }
+      this.headerBar.dispatch({
+        type: "forceComponentUpdate",
+      });
     }
 
     componentDidEnter(dispatcher: StyleContextComponent["dispatch"]) {
