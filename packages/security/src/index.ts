@@ -1,2 +1,2 @@
-export * as GooglePlayServices from "./googleplayservices";
-export * as GoogleSafetyNet from "./googlesafetynet";
+export { default as GooglePlayServices } from "./googleplayservices";
+export { default as GoogleSafetyNet } from "./googlesafetynet";
