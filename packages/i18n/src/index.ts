@@ -1,7 +1,7 @@
 import { EventEmitter } from "@smartface/native/core/eventemitter";
 import i18next, { i18n as nextI18N, InitOptions, Resource } from "i18next";
 
-export class i18n {
+export default class i18n {
   static emitter = new EventEmitter();
   static languageFiles: Resource;
   static defaultLocale = "en";
