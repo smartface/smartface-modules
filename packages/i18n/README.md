@@ -37,13 +37,14 @@ Initialize i18n instance
 
 ```ts
 import i18n from "@smartface/i18n";
+import System from "@smartface/native/device/system"
 
 import en from "./en";
 import tr from "./tr";
 
 new i18n({
   lng: Device.language,
-  debug: !!isEmulator,
+  debug: System.isEmulator,
   resources: {
     en: {
       translation: en
@@ -68,7 +69,7 @@ i18n.instance.t("keyWithCount", { count: 5 });
 i18n.changeLanguage("tr");
 
 //subscribe to locale changes
-const unsubscribe = i18n.onChange(() => {
+const unsubscribe = i18n.on('change', () => {
   console.log("subscribe trigger");
 });
 
