@@ -5,6 +5,7 @@ import removeContextChild from "./action/removeChild";
 import { MergeCtor } from "./mixin";
 import { ConstructorOf } from "./ConstructorOf";
 import type { StyleableDispatch } from ".";
+import StyleActions from "./styleActions";
 
 export interface iStyleableContainer extends Styleable {
   // addChild(child: View<any>): void;
@@ -23,8 +24,11 @@ export interface iStyleableContainer extends Styleable {
 
 export function styleableContainerComponentMixin<T extends ConstructorOf<any>>(ViewClass: T) {
   const Component = class extends ViewClass implements iStyleableContainer {
+    dispatch?: StyleableDispatch;
+    style: StyleActions;
     constructor(...args: any[]){
       super(...args);
+      this.style = new StyleActions<typeof this>(this.layout || this);
     }
 
     addChild(child: View<any>, name?: string, classNames?: string, userProps?: { [key: string]: any }, defaultClassNames?: string): void {
@@ -54,7 +58,6 @@ export function styleableContainerComponentMixin<T extends ConstructorOf<any>>(V
       this.dispatch?.(removeContextChild());
       super.removeChild?.(view);
     }
-    dispatch?: StyleableDispatch;
   };
 
   return Component
@@ -65,5 +68,10 @@ export function styleableComponentMixin<
 >(ViewClass: T) {
   return class extends ViewClass implements Styleable {
     dispatch?: StyleableDispatch;
+    style: StyleActions;
+    constructor(...args: any[]) {
+      super(...args);
+      this.style = new StyleActions<typeof this>(this);
+    }
   };
 }
