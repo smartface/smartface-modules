@@ -10,17 +10,20 @@ import Page from "@smartface/native/ui/page";
 import { MergeCtor } from "./mixin";
 import { instanceOfStyleContextComponentType } from "./instanceOfStyleContextComponentType";
 import type { ConstructorOf } from "./ConstructorOf";
+import StyleActions from "./styleActions";
 
 export function styleablePageMixin<
   T extends typeof Page = typeof Page
 >(Pg: T) {
   const StyleablePageClass = class extends (Pg as any) implements StyleablePage {
     dispatch?: StyleContextComponent["dispatch"];
+    style: StyleActions;
     themeContext?: (action?: any) => void;
     headerBarUpdated: boolean = false;
 
     constructor(options?: any) {
       super(options);
+      this.style = new StyleActions(this.layout);
       if (this.ios) {
         this.ios.onSafeAreaPaddingChange = this.onSafeAreaPaddingChange;
       }
