@@ -17,7 +17,6 @@ export function styleablePageMixin<
 >(Pg: T) {
   const StyleablePageClass = class extends (Pg as any) implements StyleablePage {
     dispatch?: StyleContextComponent["dispatch"];
-    style: StyleActions;
     themeContext?: (action?: any) => void;
     headerBarUpdated: boolean = false;
 
