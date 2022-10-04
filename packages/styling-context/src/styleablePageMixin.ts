@@ -23,7 +23,7 @@ export function styleablePageMixin<
 
     constructor(options?: any) {
       super(options);
-      this.style = new StyleActions(this.layout);
+      this.style = new StyleActions(this);
       if (this.ios) {
         this.ios.onSafeAreaPaddingChange = this.onSafeAreaPaddingChange;
       }
