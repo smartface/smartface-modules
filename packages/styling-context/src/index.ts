@@ -67,7 +67,7 @@ export type Actions = {
 } | 
 {
     type: "removeClassName",
-    className: string;
+    className: string[] | string;
 }
 
 export type StyleableDispatch = (action: Actions) => void;
