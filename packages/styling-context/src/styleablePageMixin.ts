@@ -58,9 +58,7 @@ export function styleablePageMixin<
     updateHeaderBar() {
       if (this.parentController &&
         this.parentController.headerBar &&
-        this.headerBar.dispatch &&
-        !this.headerBar.__isUpdated) {
-        this.headerBar.__isUpdated = true;
+        this.headerBar.dispatch) {
         this.headerBar.dispatch({
           type: "updateComponent",
           component: this.parentController.headerBar
