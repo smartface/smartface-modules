@@ -27,6 +27,7 @@ export type Actions = {
 } |
 {
     type: "removeChild",
+    component: View
 } |
 {
     type: "removeChildren",
