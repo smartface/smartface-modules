@@ -1,6 +1,6 @@
 {
   "name": "@smartface/webviewbridge",
-  "version": "5.0.7",
+  "version": "5.0.8",
   "author": "Smartface Inc. <info@smartface.io>",
   "license": "MIT",
   "main": "lib/index.js",
