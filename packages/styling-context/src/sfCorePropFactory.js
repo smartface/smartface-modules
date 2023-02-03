@@ -17,6 +17,7 @@ import { ShimmeringDirection } from "@smartface/native/ui/shimmerflexlayout/shim
 import { ScrollViewAlign } from "@smartface/native/ui/scrollview/scrollview";
 import { ScrollDirection } from "@smartface/native/ui/layoutmanager/layoutmanager";
 const HexColorValidationRegexp = /^#[0-9A-Fa-f]{6}$/gi;
+const urlRegEx = /^(http:|https:)/i;
 const ENUMS = {
   imageFillType: ImageFillType,
   textAlignment: TextAlignment,
@@ -182,7 +183,7 @@ function createImageForDevice(image) {
   var res;
   if (image instanceof Object) {
     if (image.src !== undefined) {
-      res = Image.createFromFile("images://" + image.src);
+      res = Image.createFromFile(urlRegEx.test(image.src) ? image.src : "images://" + image.src);
       res.autoMirrored = image.autoMirrored;
     } else {
       res = {};
@@ -191,7 +192,7 @@ function createImageForDevice(image) {
       });
     }
   } else {
-    res = "images://" + image;
+    res = urlRegEx.test(image) ? image : "images://" + image
   }
   return res;
 }
