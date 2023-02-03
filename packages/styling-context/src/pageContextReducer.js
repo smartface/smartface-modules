@@ -55,7 +55,13 @@ export function pageContextReducer(context, action, target, state) {
 
       return newState;
     case "removeChild":
-      context.remove(target);
+      context.map(actor => {
+        // Find the component in the actor tree since it is passed by reference
+        const component = actor.getComponent();
+        if (component === action.component) {
+          context.remove(actor.getInstanceID());
+        }
+      });
       return newState;
     case "removeChildren":
       context.removeChildren(target);

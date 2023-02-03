@@ -97,7 +97,7 @@ export function styleablePageMixin<
     removeChild(child: View<any>) {
       this.layout.removeChild(child);
       if(instanceOfStyleContextComponentType(child))
-        child.dispatch && child.dispatch(removeContextChild());
+        child.dispatch && child.dispatch(removeContextChild(child));
     }
 
     removeChildren() {

@@ -55,7 +55,7 @@ export function styleableContainerComponentMixin<T extends ConstructorOf<any>>(V
     }
 
     removeChild(view: View<any>) {
-      this.dispatch?.(removeContextChild());
+      this.dispatch?.(removeContextChild(view));
       super.removeChild?.(view);
     }
   };
