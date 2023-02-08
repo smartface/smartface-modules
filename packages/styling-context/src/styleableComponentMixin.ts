@@ -2,33 +2,30 @@ import View from "@smartface/native/ui/view";
 import { Styleable } from "./Styleable";
 import addContextChild from "./action/addChild";
 import removeContextChild from "./action/removeChild";
-import { MergeCtor } from "./mixin";
 import { ConstructorOf } from "./ConstructorOf";
-import type { StyleableDispatch } from ".";
+import { StyleableDispatch } from ".";
 import StyleActions from "./styleActions";
+import { IViewGroup } from "@smartface/native/ui/viewgroup/viewgroup";
+import { IFlexLayout } from "@smartface/native/ui/flexlayout/flexlayout";
+import { IView } from "@smartface/native/ui/view/view";
 
 export interface iStyleableContainer extends Styleable {
   // addChild(child: View<any>): void;
   addChild(child: View<any>, name?: string, classNames?: string, userProps?: { [key: string]: any }, defaultClassNames?: string): void;
-  addStyleableChild(
-    child: View<any>,
-    name: string,
-    classNames?: string,
-    userProps?: { [key: string]: any },
-    defaultClassNames?: string
-  ): void;
+  addStyleableChild(child: View<any>, name: string, classNames?: string, userProps?: { [key: string]: any }, defaultClassNames?: string): void;
 
   removeChild(view: View<any>): void;
   dispatch?: StyleableDispatch;
 }
 
-export function styleableContainerComponentMixin<T extends ConstructorOf<any>>(ViewClass: T) {
+export function styleableContainerComponentMixin<T extends ConstructorOf<IViewGroup>>(ViewClass: T) {
   const Component = class extends ViewClass implements iStyleableContainer {
     dispatch?: StyleableDispatch;
     style: StyleActions;
-    constructor(...args: any[]){
+    layout?: IFlexLayout;
+    constructor(...args: any[]) {
       super(...args);
-      this.style = new StyleActions<typeof this>(this.layout || this);
+      this.style = new StyleActions<typeof this>((this as any).layout || this);
     }
 
     addChild(child: View<any>, name?: string, classNames?: string, userProps?: { [key: string]: any }, defaultClassNames?: string): void {
@@ -42,16 +39,8 @@ export function styleableContainerComponentMixin<T extends ConstructorOf<any>>(V
       }
     }
 
-    addStyleableChild(
-      child: View<any>,
-      name: string,
-      classNames?: string,
-      userProps?: { [key: string]: any },
-      defaultClassNames?: string
-    ): void {
-      this.dispatch?.(
-        addContextChild(name, child, classNames, userProps, defaultClassNames)
-      );
+    addStyleableChild(child: View<any>, name: string, classNames?: string, userProps?: { [key: string]: any }, defaultClassNames?: string): void {
+      this.dispatch?.(addContextChild(name, child, classNames, userProps, defaultClassNames));
     }
 
     removeChild(view: View<any>) {
@@ -60,12 +49,10 @@ export function styleableContainerComponentMixin<T extends ConstructorOf<any>>(V
     }
   };
 
-  return Component
+  return Component;
 }
 
-export function styleableComponentMixin<
-  T extends ConstructorOf<any> = ConstructorOf<any>
->(ViewClass: T) {
+export function styleableComponentMixin<T extends ConstructorOf<IView>>(ViewClass: T) {
   return class extends ViewClass implements Styleable {
     dispatch?: StyleableDispatch;
     style: StyleActions;
