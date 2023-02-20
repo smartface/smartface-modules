@@ -1,6 +1,6 @@
 {
   "name": "@smartface/styling-context",
-  "version": "5.0.10-alpha.0",
+  "version": "5.0.10",
   "description": "Smartface Styling Context",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
