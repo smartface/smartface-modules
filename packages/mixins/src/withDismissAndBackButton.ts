@@ -149,7 +149,11 @@ export function withDismissAndBackButton<T extends new (...params: any[]) => Pag
     }
 
     initBackButtononiOS(router: NativeStackRouter, options: DismissOptions) {
-      if (System.OS !== System.OSType.IOS && !router.canGoBack(-1)) {
+      if (System.OS !== System.OSType.IOS) {
+        return;
+      }
+      if (!router.canGoBack(-1)) {
+        // Look if it's the firt page
         return;
       }
       const hbi = new HeaderBarItem({
