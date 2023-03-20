@@ -96,7 +96,7 @@ export function pageContextReducer(context, action, target, state) {
       stylable.applyStyles(true);
       return newState;
     case "forceComponentUpdate":
-      const actor = context.find(target);
+      var actor = context.find(action.name || target);
       actor && actor.reset();
       return newState;
   }

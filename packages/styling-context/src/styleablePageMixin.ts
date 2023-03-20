@@ -78,6 +78,10 @@ export function styleablePageMixin<
       this.dispatch?.({
         type: "invalidate",
       });
+      this.dispatch?.({
+        type: "forceComponentUpdate",
+        name: this.getName() + "_statusBar"
+      });
     };
 
     onOrientationChange({orientation}:{orientation: any}) {
