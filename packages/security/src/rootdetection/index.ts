@@ -28,10 +28,9 @@ class RootDetectionClass {
       //@ts-ignore
       this.rootDetectionNative = new __SF_RootDetection();
     } else {
-      const RootDetectionUtilAndroid = require('./rootdetectionutil.android').default;
+      const RootDetectionUtilAndroid = require("./rootdetectionutil.android").default;
       this.rootDetectionNative = new RootDetectionUtilAndroid();
     }
-    
   }
 
   private checkPathsForIOS(): boolean {
@@ -69,6 +68,7 @@ class RootDetectionClass {
    * } else {
    *     console.log("Your device is not rooted/jailbroken");
    * }
+   *
    *```
    */
   isRooted(): boolean {
