@@ -68,7 +68,6 @@ class RootDetectionClass {
    * } else {
    *     console.log("Your device is not rooted/jailbroken");
    * }
-   *
    *```
    */
   isRooted(): boolean {
