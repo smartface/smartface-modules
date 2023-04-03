@@ -28,9 +28,8 @@ class RootDetectionClass {
       //@ts-ignore
       this.rootDetectionNative = new __SF_RootDetection();
     } else {
-      //@ts-ignore
-      const RootDetectionUtil = requireClass("io.smartface.android.utils.RootDetectionUtil");
-      this.rootDetectionNative = new RootDetectionUtil();
+      const RootDetectionUtilAndroid = require('./rootdetectionutil.android').default;
+      this.rootDetectionNative = new RootDetectionUtilAndroid();
     }
     
   }
@@ -41,11 +40,7 @@ class RootDetectionClass {
   }
   private checkPathsForAndroid(): boolean {
     const knownRootAppPackages = AndroidRootConfig.knownRootAppPackages;
-    const isDetected = this.rootDetectionNative.checkAppPackages(
-      //@ts-ignore
-      array(knownRootAppPackages, "java.lang.String")
-    );
-    return isDetected;
+    return this.rootDetectionNative.checkAppPackages(knownRootAppPackages);
   }
   private checkSchemes(): boolean {
     this.rootDetectionNative.schemesToCheck = iOSJailBreakConfig.schemesToCheck;
@@ -56,11 +51,7 @@ class RootDetectionClass {
   }
   private checkRootAccessGainedForAndroid(): boolean {
     const pathThatShouldNotWritable = AndroidRootConfig.knownRootAppPackages;
-    const isWritable = this.rootDetectionNative.checkRootAccessGained(
-      //@ts-ignore
-      array(pathThatShouldNotWritable, "java.lang.String")
-    );
-    return isWritable;
+    return this.rootDetectionNative.checkRootAccessGained(pathThatShouldNotWritable);
   }
 
   /**
@@ -90,11 +81,7 @@ class RootDetectionClass {
 
   private checkSuBinaryExistance(): boolean {
     const suBinaryPaths = AndroidRootConfig.suBinaryPaths;
-    const isThereSuBinaries = this.rootDetectionNative.checkSuBinaryExistance(
-      //@ts-ignore
-      array(suBinaryPaths, "java.lang.String")
-    );
-    return isThereSuBinaries;
+    return this.rootDetectionNative.checkSuBinaryExistance(suBinaryPaths);
   }
 }
 
