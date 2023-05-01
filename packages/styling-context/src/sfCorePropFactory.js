@@ -90,6 +90,7 @@ const IMAGE_PROPS = ["backIndicatorImage", "backgroundImage", "closeImage", "ico
 const FONT_PROPS = ["font", "titleFont", "cancelButtonFont", "doneButtonFont", "labelsFont", "okFont", "cancelFont", "subtitleFont", "clusterFont"];
 
 const GIFIMAGE_PROPS = ["gifImage"];
+const SVGIMAGE_PROPS = ["svgImage"];
 
 const FONT_STYLE = {
   BOLD: "BOLD",
@@ -157,6 +158,8 @@ export function createSFCoreProp(key, value) {
     res = createFontForDevice(value);
   } else if (GIFIMAGE_PROPS.indexOf(key) !== -1) {
     res = createGifImageForDevice(value);
+  } else if (SVGIMAGE_PROPS.indexOf(key) !== -1) {
+    res = `assets://${value}`;
   } else {
     res = value === null ? NaN : value;
   }
@@ -192,7 +195,7 @@ function createImageForDevice(image) {
       });
     }
   } else {
-    res = urlRegEx.test(image) ? image : "images://" + image
+    res = urlRegEx.test(image) ? image : "images://" + image;
   }
   return res;
 }
