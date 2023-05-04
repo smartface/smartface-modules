@@ -159,7 +159,7 @@ export function createSFCoreProp(key, value) {
   } else if (GIFIMAGE_PROPS.indexOf(key) !== -1) {
     res = createGifImageForDevice(value);
   } else if (SVGIMAGE_PROPS.indexOf(key) !== -1) {
-    res = `assets://${value}`;
+    res = res = urlRegEx.test(value) ? value : `assets://${value}`;
   } else {
     res = value === null ? NaN : value;
   }
