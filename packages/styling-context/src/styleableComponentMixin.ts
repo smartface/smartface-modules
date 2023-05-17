@@ -8,6 +8,9 @@ import StyleActions from "./styleActions";
 import { IViewGroup } from "@smartface/native/ui/viewgroup/viewgroup";
 import { IFlexLayout } from "@smartface/native/ui/flexlayout/flexlayout";
 import { IView } from "@smartface/native/ui/view/view";
+import { ISliderDrawer } from "@smartface/native/ui/sliderdrawer/sliderdrawer";
+import { IShimmerFlexLayout } from "@smartface/native/ui/shimmerflexlayout/shimmerflexlayout";
+import SwipeItem from "@smartface/native/ui/swipeitem";
 
 export interface iStyleableContainer extends Styleable {
   // addChild(child: View<any>): void;
@@ -18,7 +21,7 @@ export interface iStyleableContainer extends Styleable {
   dispatch?: StyleableDispatch;
 }
 
-export function styleableContainerComponentMixin<T extends ConstructorOf<IViewGroup>>(ViewClass: T) {
+export function styleableContainerComponentMixin<T extends ConstructorOf<IViewGroup> | ConstructorOf<ISliderDrawer> | ConstructorOf<IShimmerFlexLayout>>(ViewClass: T) {
   const Component = class extends ViewClass implements iStyleableContainer {
     dispatch?: StyleableDispatch;
     style: StyleActions;
@@ -52,7 +55,7 @@ export function styleableContainerComponentMixin<T extends ConstructorOf<IViewGr
   return Component;
 }
 
-export function styleableComponentMixin<T extends ConstructorOf<IView>>(ViewClass: T) {
+export function styleableComponentMixin<T extends ConstructorOf<IView> | ConstructorOf<SwipeItem>>(ViewClass: T) {
   return class extends ViewClass implements Styleable {
     dispatch?: StyleableDispatch;
     style: StyleActions;
